@@ -4,10 +4,12 @@ import { TextField } from 'components/TextField'
 const App = (): JSX.Element => (
   <div>
     <header>
-      <p>Styled Components to compose Basic UI with themes!</p>
+      <p>Styled Components to compose Basic UIs with themes!</p>
     </header>
     <section>
-      <header>Examples below.</header>
+      <header>
+        <h1>Examples below.</h1>
+      </header>
       <TextField label="Example Label" type="text" />
     </section>
   </div>

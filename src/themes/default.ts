@@ -1,10 +1,10 @@
 const theme = {
   font: {
-    family: 'Gudea, Didact Gothic, Roboto, sans-serif',
-    weights: { label: 300 },
-    titles: {
-      fonts: 'Montserrat Alternates, Montserrat'
-    }
+    family: {
+      body: 'Mulish, Roboto, sans-serif',
+      titles: "'Baloo Tamma 2', Gudea, 'Roboto Condensed', 'Montserrat Alternates', Roboto, sans-serif"
+    },
+    weights: { label: 500 }
   },
   button: {
     neutral: {
@@ -20,6 +20,18 @@ const theme = {
       width: '1px'
     }
   },
+  palette: {
+    gray: {
+      white: '#fff',
+      lighter: '#f3f3f3',
+      light: '#cfcfcf',
+      neutral: '#999',
+      medium: '#7f7f7f',
+      dark: '#515151',
+      darker: '#333',
+      black: '#000'
+    }
+  }
 }
 
 export default theme
