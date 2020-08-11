@@ -1,21 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Typography } from 'components/Typography'
 
 const InputWrapper = styled.div`
   margin-bottom: 1em;
-`
-const Label = styled.label`
-  font-size: 1em;
-  font-family: ${({ theme: { font } }) => font.family.titles};
-  font-weight: ${({ theme: { font } }) => font.weights.label};
-  color: ${({ theme: { label } }) => label.color};
 `
 
 const Input = styled.input`
   border-width: 0;
   border-style: ${({ theme: { input } }) => input.border.style};
   border-bottom-width: ${({ theme: { input } }) => input.border.width};
-  border-bottom-color: ${({ theme: { input } }) => input.border.color};
+  border-bottom-color: ${({ theme: { palette } }) => palette.grayMedium};
   padding: 0.25em 0.5em;
 `
 
@@ -50,7 +45,7 @@ interface TextFieldProps {
 
 const TextField: React.FunctionComponent<TextFieldProps> = ({ label, type, value, onClick }) => (
   <InputWrapper>
-    <Label>{label}</Label>
+    <Typography variant="label">{label}</Typography>
     <Input {...{ type, value, onClick }} />
   </InputWrapper>
 )

@@ -6,6 +6,7 @@ import Roboto from 'fonts/RobotoRegular.ttf'
 import RobotoCondensed from 'fonts/RobotoCondensedRegular.ttf'
 import BalooTamma2 from 'fonts/BalooTamma2-Regular.ttf'
 import MonstserratAlternatesRegular from 'fonts/MontserratAlternatesRegular.ttf'
+import theme from 'themes/default'
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -45,8 +46,22 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
   }
 
-  body {
+  * {
     font-family: Mulish, Roboto, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  :root {
+    font-size: 16px;
+
+    @media (min-width: ${theme.screen.tablet}px) {
+      font-size: 14px;
+    }
+
+    @media (min-width: ${theme.screen.web}px) {
+      font-size: 12px;
+    }
   }
 `
 
