@@ -1,53 +1,22 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Typography } from 'components/Typography'
+import { Input, TextFieldProps } from './Input'
+import { InputWrapper } from './TextFieldWrapper'
+import { LabelWrapper } from './LabelWrapper'
+import { useTextField } from './useTextField.hook'
 
-const InputWrapper = styled.div`
-  margin-bottom: 1em;
-`
+const TextField: React.FC<TextFieldProps> = (props: TextFieldProps) => {
+  const { type, value, label, inputSize, fullWidth } = props
+  const { filled, touched, labelWrapperOnClick, onFocus, onBlur, onInput, inputRef } = useTextField(props)
 
-const Input = styled.input`
-  border-width: 0;
-  border-style: ${({ theme: { input } }) => input.border.style};
-  border-bottom-width: ${({ theme: { input } }) => input.border.width};
-  border-bottom-color: ${({ theme: { palette } }) => palette.grayMedium};
-  padding: 0.25em 0.5em;
-`
-
-interface TextFieldProps {
-  label: string
-  type:
-    | 'button'
-    | 'checkbox'
-    | 'color'
-    | 'date'
-    | 'datetime'
-    | 'email'
-    | 'file'
-    | 'hidden'
-    | 'image'
-    | 'month'
-    | 'number'
-    | 'password'
-    | 'radio'
-    | 'range'
-    | 'reset'
-    | 'search'
-    | 'submit'
-    | 'tel'
-    | 'text'
-    | 'time'
-    | 'url'
-    | 'week'
-  value?: string
-  onClick?: (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => void
+  return (
+    <InputWrapper>
+      <LabelWrapper {...{ touched, filled, onClick: labelWrapperOnClick }}>
+        <Typography variant="label">{label}</Typography>
+      </LabelWrapper>
+      <Input {...{ type, value, onFocus, onInput, onBlur, ref: inputRef, inputSize, fullWidth }} />
+    </InputWrapper>
+  )
 }
-
-const TextField: React.FunctionComponent<TextFieldProps> = ({ label, type, value, onClick }) => (
-  <InputWrapper>
-    <Typography variant="label">{label}</Typography>
-    <Input {...{ type, value, onClick }} />
-  </InputWrapper>
-)
 
 export { TextField }
