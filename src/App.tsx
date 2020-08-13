@@ -12,9 +12,9 @@ const App = (): JSX.Element => (
       <Typography variant="title2">Examples below.</Typography>
     </Header>
 
-    <GridExample />
-
     <InputExample />
+
+    <GridExample />
   </Box>
 )
 

@@ -47,7 +47,6 @@ const Typography = styled(DynamicComponent)`
     variant = variant || 'body'
     color = color || 'grayDarker'
     return `
-      backgrouond-color: red;
       color: ${theme.palette[color]};
       font-family: ${theme.font.family[variant]};
       ${styles[variant]}

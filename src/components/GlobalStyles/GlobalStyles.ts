@@ -1,66 +1,67 @@
 import { createGlobalStyle } from 'styled-components'
 
-import GudeaRegular from 'fonts/GudeaRegular.ttf'
 import Mulish from 'fonts/Mulish.ttf'
 import Roboto from 'fonts/RobotoRegular.ttf'
-import RobotoCondensed from 'fonts/RobotoCondensedRegular.ttf'
-import BalooTamma2 from 'fonts/BalooTamma2-Regular.ttf'
-import MonstserratAlternatesRegular from 'fonts/MontserratAlternatesRegular.ttf'
+import ComfortaaVariable from 'fonts/ComfortaaVariable.ttf'
+import QuicksandVariable from 'fonts/QuicksandVariable.ttf'
+import SpartanVariable from 'fonts/SpartanVariable.ttf'
 import theme from 'themes/default'
+
+const mediaQuery = (maxWidthPixels: number) => `@media (max-width: ${maxWidthPixels}px)`
+
+const media = {
+  custom: mediaQuery,
+  phone: mediaQuery(theme.screen.phone),
+  tablet: mediaQuery(theme.screen.tablet),
+  desktop: mediaQuery(theme.screen.web),
+}
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
-    font-family: Gudea;
-    src: url(${GudeaRegular});
-    font-weight: 300;
+    font-family: Comfortaa;
+    src: url(${ComfortaaVariable}) format("truetype");
     font-style: normal;
+    font-weight: 1 999;
   }
   @font-face {
     font-family: 'Mulish';
-    src: url(${Mulish});
-    font-weight: 300;
+    src: url(${Mulish} format("truetype"))
     font-style: normal;
+    font-weight: 1 999;
   }
   @font-face {
     font-family: 'Roboto';
-    src: url(${Roboto});
-    font-weight: 300;
+    src: url(${Roboto}) format("truetype");
     font-style: normal;
+    font-weight: 1 999;
   }
   @font-face {
-    font-family: 'Roboto Condensed';
-    src: url(${RobotoCondensed});
-    font-weight: 300;
+    font-family: Spartan;
+    src: url(${SpartanVariable}) format("truetype");
     font-style: normal;
+    font-weight: 1 999;
   }
   @font-face {
-    font-family: 'Montserrat Alternates';
-    src: url(${MonstserratAlternatesRegular});
-    font-weight: 300;
+    font-family: 'Quicksand';
+    src: url(${QuicksandVariable}) format("truetype");
     font-style: normal;
-  }
-  @font-face {
-    font-family: 'Baloo Tamma 2';
-    src: url(${BalooTamma2});
-    font-weight: 300;
-    font-style: normal;
+    font-weight: 1 999;
   }
 
   * {
-    font-family: Mulish, Roboto, sans-serif;
+    font-family: ${theme.font.family.body};
     padding: 0;
     margin: 0;
     box-sizing: border-box;
   }
   :root {
-    font-size: 16px;
+    font-size: ${theme.font.sizes.web};
 
-    @media (min-width: ${theme.screen.tablet}px) {
-      font-size: 14px;
+    ${media.tablet} {
+      font-size: ${theme.font.sizes.tablet};
     }
-
-    @media (min-width: ${theme.screen.web}px) {
-      font-size: 12px;
+    ${media.phone} {
+      font-size: ${theme.font.sizes.phone};
     }
   }
 `
