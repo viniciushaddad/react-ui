@@ -1,21 +1,25 @@
 import React from 'react'
-import { Typography } from 'components/Typography'
 import { Input, TextFieldProps } from './Input'
-import { InputWrapper } from './TextFieldWrapper'
-import { LabelWrapper } from './LabelWrapper'
+import { InputWrapper } from './InputWrapper'
+import { InputLabel } from './InputLabel'
+import { TextFieldError } from './TextFieldError'
+import { TextFieldWrapper } from './TextFieldWrapper'
 import { useTextField } from './useTextField.hook'
 
 const TextField: React.FC<TextFieldProps> = (props: TextFieldProps) => {
-  const { type, value, label, inputSize, fullWidth } = props
-  const { filled, touched, labelWrapperOnClick, onFocus, onBlur, onInput, inputRef } = useTextField(props)
+  const { type, label, inputSize, fullWidth, error } = props
+  const { filled, touched, inputValue, labelOnClick, onFocus, onBlur, onInput, inputRef } = useTextField(props)
 
   return (
-    <InputWrapper>
-      <LabelWrapper {...{ touched, filled, onClick: labelWrapperOnClick }}>
-        <Typography variant="label">{label}</Typography>
-      </LabelWrapper>
-      <Input {...{ type, value, onFocus, onInput, onBlur, ref: inputRef, inputSize, fullWidth }} />
-    </InputWrapper>
+    <TextFieldWrapper>
+      <InputWrapper>
+        <InputLabel {...{ touched, filled, inputSize, error, onClick: labelOnClick }} variant="label">
+          {label}
+        </InputLabel>
+        <Input {...{ type, value: inputValue, onFocus, onInput, onBlur, ref: inputRef, inputSize, fullWidth, error }} />
+      </InputWrapper>
+      {error && <TextFieldError variant="label">{error}</TextFieldError>}
+    </TextFieldWrapper>
   )
 }
 

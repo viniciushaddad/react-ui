@@ -7,6 +7,8 @@ const Input: StyledComponent<'input', TextFieldProps> = styled.input<TextFieldPr
 
 export { Input }
 
+export type InputSizes = 'md' | 'xs' | 'lg'
+
 export interface TextFieldProps {
   label: string
   type:
@@ -35,5 +37,6 @@ export interface TextFieldProps {
   value?: string
   onValueChange?: (value: string) => void
   fullWidth?: boolean
-  inputSize?: 'md' | 'xs' | 'lg'
+  inputSize?: InputSizes
+  error?: string
 }

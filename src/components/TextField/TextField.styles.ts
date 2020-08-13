@@ -1,28 +1,42 @@
 import { css } from 'styled-components'
-import { TextFieldProps } from './Input'
+import { TextFieldProps, InputSizes } from './Input'
 
 const inputWrapperCss = css`
-  margin-bottom: 1.5em;
   position: relative;
 `
 
-const labelWrapperCss = css<{ touched?: boolean; filled?: boolean }>`
-  font-family: ${({ theme }) => theme.font.family.label};
-  font-weight: bold;
+const textFieldWrapperCss = css`
+  margin-bottom: 1.5em;
+`
+
+const labelSizes = {
+  md: `fons-size: 1em;`,
+  xs: `font-size: 0.85em;`,
+  lg: `font-size: 1.5em;`,
+  touched: {
+    md: `font-size: 0.9em;`,
+    xs: `font-size: 0.8em;`,
+    lg: `font-size: 1em;`,
+  },
+}
+
+const inputLabelCss = css<{ touched?: boolean; filled?: boolean; inputSize?: InputSizes; error?: string }>`
+  ${({ inputSize }) => labelSizes[inputSize || 'md']}
   position: absolute;
   left: 1em;
   top: 50%;
   margin-top: -0.66em;
-  transition: all 0.2s ease-in-out;
-  ${({ touched, filled, theme }) =>
+  transition: all 0.1s ease-in-out;
+  ${({ touched, filled, theme, inputSize }) =>
     (touched || filled) &&
     `
       background-color: ${theme.palette.white};
-      font-size: 0.8em;
+      ${labelSizes.touched[inputSize || 'md']}
       padding: 0 0.25em;
       margin-left: -0.25em;
       top: 0;
   `}
+  ${({ error }) => error && textFieldErrorCss}
 `
 
 const inputSizes = {
@@ -32,19 +46,19 @@ const inputSizes = {
     padding: .5em 1em;
   `,
   xs: `
-    font-size: .8em;
+    font-size: .85em;
     line-height: 1.2em;
-    padding: .3em .8em;
+    padding: .5em .85em;
   `,
   lg: `
     font-size: 1.5em;
-    line-height: 2.25em;
+    line-height: 1.75em;
     padding: .8em 1.5em;
   `,
 }
 
 const inputCss = css<TextFieldProps>`
-  ${({ theme: { input, palette }, fullWidth, inputSize }) => `
+  ${({ theme: { input, palette }, fullWidth, inputSize, error }) => `
     border-width: 0;
     border-radius: ${input.border.radius};
     border-style: ${input.border.style};
@@ -52,7 +66,12 @@ const inputCss = css<TextFieldProps>`
     border-color: ${palette.grayLight};
     ${fullWidth ? 'width: 100%;' : ''}
     ${inputSizes[inputSize || 'md']}
+    ${error && `border-color: ${palette.redWood};`}
   `}
 `
 
-export { inputWrapperCss, inputCss, labelWrapperCss }
+const textFieldErrorCss = css`
+  color: ${({ theme }) => theme.palette.redWood};
+`
+
+export { inputWrapperCss, inputCss, inputLabelCss, textFieldErrorCss, textFieldWrapperCss }

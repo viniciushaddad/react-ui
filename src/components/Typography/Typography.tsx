@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, Attributes } from 'react'
 import styled from 'styled-components'
 import * as styles from './Typography.styles'
 
@@ -16,7 +16,7 @@ type variant =
   | 'subcaption'
   | 'label'
 
-interface TypographyProps {
+interface TypographyProps extends Attributes {
   variant?: variant
   color?: string
   children?: React.ReactNode
