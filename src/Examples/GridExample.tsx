@@ -30,14 +30,14 @@ const GridExample = (): JSX.Element => {
           <Col size={1}>
             <div style={{ backgroundColor: theme.palette.grayMedium, height: '100%' }}>
               <Box>
-                <Typography> {lorems[0]}</Typography>
+                <Typography>{lorems[0]}</Typography>
               </Box>
             </div>
           </Col>
           <Col size={2}>
             <div style={{ backgroundColor: theme.palette.inchworm, height: '100%' }}>
               <Box>
-                <Typography> {lorems[1]}</Typography>
+                <Typography>{lorems[1]}</Typography>
               </Box>
             </div>
           </Col>
@@ -46,7 +46,7 @@ const GridExample = (): JSX.Element => {
           <Col size={1}>
             <div style={{ backgroundColor: theme.palette.keppel, height: '100%' }}>
               <Box>
-                <Typography> {lorems[2]}</Typography>
+                <Typography>{lorems[2]}</Typography>
               </Box>
             </div>
           </Col>
@@ -55,14 +55,14 @@ const GridExample = (): JSX.Element => {
           <Col size={1}>
             <div style={{ backgroundColor: theme.palette.blueMunsell, height: '100%' }}>
               <Box>
-                <Typography> {lorems[3]}</Typography>
+                <Typography>{lorems[3]}</Typography>
               </Box>
             </div>
           </Col>
           <Col size={3}>
             <div style={{ backgroundColor: theme.palette.maizeCrayola, height: '100%' }}>
               <Box>
-                <Typography> {lorems[4]}</Typography>
+                <Typography>{lorems[4]}</Typography>
               </Box>
             </div>
           </Col>
@@ -70,7 +70,7 @@ const GridExample = (): JSX.Element => {
             <div style={{ backgroundColor: theme.palette.sandyBrown, height: '100%' }}>
               <Box>
                 <Typography variant="title1">Hides on XS!</Typography>
-                <Typography> {lorems[5]}</Typography>
+                <Typography>{lorems[5]}</Typography>
               </Box>
             </div>
           </Col>
