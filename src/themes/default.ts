@@ -1,13 +1,16 @@
+const PHONE_WIDTH_IN_PIXELS = 576
 const TABLET_WIDTH_IN_PIXELS = 768
 const WEB_WIDTH_IN_PIXELS = 1024
 
 const theme = {
   screen: {
+    phone: PHONE_WIDTH_IN_PIXELS,
     tablet: TABLET_WIDTH_IN_PIXELS,
     web: WEB_WIDTH_IN_PIXELS,
   },
   font: {
     family: {
+      titles: "Gudea, 'Roboto Condensed', 'Montserrat Alternates', Roboto, sans-serif",
       largetitle: "Gudea, 'Roboto Condensed', 'Montserrat Alternates', Roboto, sans-serif",
       title1: "Gudea, 'Roboto Condensed', 'Montserrat Alternates', Roboto, sans-serif",
       title2: "Gudea, 'Roboto Condensed', 'Montserrat Alternates', Roboto, sans-serif",
@@ -20,7 +23,6 @@ const theme = {
       subcaption: "Gudea, 'Roboto Condensed', 'Montserrat Alternates', Roboto, sans-serif",
       label: "Gudea, 'Roboto Condensed', 'Montserrat Alternates', Roboto, sans-serif",
       body: 'Mulish, Roboto, sans-serif',
-      titles: "Gudea, 'Roboto Condensed', 'Montserrat Alternates', Roboto, sans-serif",
     },
     weights: { label: 500 },
   },
@@ -37,6 +39,7 @@ const theme = {
     border: {
       style: 'solid',
       width: '1px',
+      radius: '0.33em',
     },
   },
   palette: {
