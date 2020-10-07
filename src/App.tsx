@@ -4,6 +4,7 @@ import { Box } from 'components/Box'
 import { GridExample } from 'Examples'
 import { InputExample } from 'Examples/InputExample'
 import { Typography } from 'components/Typography'
+import { ButtonExample } from 'Examples/ButtonExample'
 
 const App = (): JSX.Element => (
   <Box>
@@ -13,7 +14,7 @@ const App = (): JSX.Element => (
     </Header>
 
     <InputExample />
-
+    <ButtonExample />
     <GridExample />
   </Box>
 )
