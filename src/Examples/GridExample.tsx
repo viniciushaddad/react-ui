@@ -24,7 +24,6 @@ const GridExample = (): JSX.Element => {
   return (
     <section>
       <Typography variant="title1">Grid System</Typography>
-      <hr />
       <Grid>
         <Row>
           <Col size={1}>
