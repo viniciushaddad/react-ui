@@ -10,6 +10,7 @@ const ButtonExample = (): JSX.Element => (
       <Row>
         <Col>
           <Button>Action Name</Button>
+          <Button variant="inverted">Action Name</Button>
         </Col>
       </Row>
     </Grid>

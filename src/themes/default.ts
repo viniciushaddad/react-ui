@@ -32,9 +32,10 @@ const theme = {
     weights: { label: 500 },
   },
   button: {
-    neutral: {
-      bg: '#e7e7e7',
-      color: '#444',
+    border: {
+      style: 'solid',
+      width: '1px',
+      radius: '0.33em',
     },
   },
   card: {
@@ -44,7 +45,7 @@ const theme = {
     border: {
       style: 'solid',
       width: '1px',
-      radius: '0.33em',
+      radius: '0.2em',
     },
   },
   palette: {

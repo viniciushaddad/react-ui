@@ -52,7 +52,7 @@ const inputSizes = {
   `,
   lg: `
     font-size: 1.5em;
-    line-height: 1.75em;
+    line-height: 1em;
     padding: .8em 1.5em;
   `,
 }
