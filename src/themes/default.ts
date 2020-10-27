@@ -33,7 +33,7 @@ const theme = {
   },
   button: {
     border: {
-      style: 'solid',
+      style: 'none',
       width: '1px',
       radius: '0.33em',
     },
@@ -62,6 +62,7 @@ const theme = {
     blueMunsell: '#048ba8',
     keppel: '#0db39e',
     mediumAquamarine: '#16db93',
+    heavyGreen: '#56a254',
     lightGreen: '#83e377',
     inchworm: '#b9e769',
     corn: '#efea5a',

@@ -2,7 +2,7 @@ import { Typography } from 'components/Typography'
 import React, { ReactNode } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { ButtonStyles } from './Button.styles'
+import { ButtonStyles, colorsByFlavor } from './Button.styles'
 
 export interface ButtonProps {
   children: ReactNode
@@ -14,33 +14,37 @@ export interface ButtonProps {
 export type ButtonSizes = 'md' | 'xs' | 'lg'
 export type ButtonVariant = 'primary' | 'inverted' | 'borderless'
 export type ButtonFlavor = 'positive' | 'info' | 'warning' | 'negative' | 'neutral'
-type Colors = {
-  bg: string
-  font: string
-}
 
 const StyledButton = styled.button`
   ${ButtonStyles}
 `
 
 const PrimaryButton = styled(StyledButton)`
-  ${({ colors }) => `
-    background-color: ${colors.bg};
-    color: ${colors.font}; =
-    border-color: ${colors.font};
-    `}
+  ${({ theme: { palette }, flavor }) => {
+    const { font, bg, border } = colorsByFlavor(flavor || 'neutral')
+
+    return `
+      background-color: ${palette[bg]};
+      color: ${palette[font]};
+      border-color: ${palette[border]};
+    `
+  }}
+`
+
+const InvertedButton = styled(StyledButton)`
+  ${({ theme: { palette }, flavor }) => {
+    const { font, bg, border } = colorsByFlavor(flavor || 'neutral')
+
+    return `
+      background-color: ${palette[font]};
+      color: ${palette[bg]};
+      border-color: ${palette[border]};
+    `
+  }}
 `
 
 const BorderlessButton = styled(StyledButton)`
   border: none;
-`
-
-const InvertedButton = styled(StyledButton)`
-  ${({ theme: { palette }, colors: { bg, font } }) => `
-    background-color: ${palette[font]};
-    color: ${palette[bg]};
-    border-color: ${palette[bg]};
-  `}
 `
 
 const variants = {
@@ -50,20 +54,15 @@ const variants = {
 }
 
 const Button: React.FC<ButtonProps> = ({ children, variant, flavor, size }): JSX.Element => {
-  const flavors = {
-    positive: { bg: 'lightGreen', font: 'grayDark' },
-    info: { bg: 'sapphireBlue', font: 'white' },
-    warning: { bg: 'maizeCrayola', font: 'white' },
-    negative: { bg: 'redWood', font: 'white' },
-    neutral: { bg: 'grayLighter', font: 'grayDark' },
-  }
-  const colors: Colors = flavors[flavor || 'neutral']
-
   const Button = variants[variant || 'primary']
+  const { font, bg } = colorsByFlavor(flavor || 'neutral')
+  const inverted = variant === 'inverted'
 
   return (
-    <Button {...{ variant, flavor, size, colors }}>
-      <Typography variant="label">{children}</Typography>
+    <Button {...{ variant, flavor, size }}>
+      <Typography variant="label" color={inverted ? bg : font}>
+        {children}
+      </Typography>
     </Button>
   )
 }
