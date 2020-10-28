@@ -1,10 +1,8 @@
 import React from 'react'
 import { Header } from 'components/Header/Header'
 import { Box } from 'components/Box'
-import { GridExample } from 'Examples'
-import { InputExample } from 'Examples/InputExample'
 import { Typography } from 'components/Typography'
-import { ButtonExample } from 'Examples/ButtonExample'
+import { ButtonExample, GridExample, IconSystemExample, InputExample } from 'Examples'
 
 const App = (): JSX.Element => (
   <Box>
@@ -13,6 +11,7 @@ const App = (): JSX.Element => (
       <Typography variant="title2">Examples below.</Typography>
     </Header>
 
+    <IconSystemExample />
     <InputExample />
     <ButtonExample />
     <GridExample />
