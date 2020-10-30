@@ -2,6 +2,7 @@ import { Typography } from 'components/Typography'
 import { Button } from 'components/Button'
 import React from 'react'
 import { Row, Col, Grid } from 'components/Grid'
+import { Action, Navigation } from 'components/Icons'
 
 const ButtonExample = (): JSX.Element => (
   <section>
@@ -9,18 +10,47 @@ const ButtonExample = (): JSX.Element => (
     <Grid>
       <Row>
         <Col>
-          <Button>Action Name</Button>
-          <Button variant="inverted">Action Name</Button>
-          <Button size="lg">Action Name</Button>
-          <Button size="xs">Action Name</Button>
+          <Button>Neutral</Button>
+          <Button size="xs">Small</Button>
+          <Button size="lg" endIcon={<Action.Save />}>
+            Large
+          </Button>
+          <Button variant="inverted" flavor="info">
+            Inverted
+          </Button>
         </Col>
       </Row>
       <Row>
         <Col>
-          <Button flavor="info">Action Name</Button>
-          <Button flavor="positive">Action Name</Button>
-          <Button flavor="warning">Action Name</Button>
-          <Button flavor="negative">Action Name</Button>
+          <Button flavor="info">Info</Button>
+          <Button flavor="positive">Positive</Button>
+          <Button flavor="warning">Warning</Button>
+          <Button flavor="negative">Negative</Button>
+        </Col>
+      </Row>
+    </Grid>
+    <Typography variant="title2" bordered>
+      With icon
+    </Typography>
+    <Grid>
+      <Row>
+        <Col>
+          <Button flavor="info" endIcon={<Navigation.ArrowRight />}>
+            Continue
+          </Button>
+        </Col>
+      </Row>
+    </Grid>
+
+    <Typography variant="title2" bordered>
+      Loading
+    </Typography>
+    <Grid>
+      <Row>
+        <Col>
+          <Button flavor="info" loading>
+            Loading
+          </Button>
         </Col>
       </Row>
     </Grid>

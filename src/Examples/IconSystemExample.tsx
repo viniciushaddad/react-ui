@@ -16,7 +16,28 @@ const IconSystemExample = (): JSX.Element => {
       <Typography variant="title2" bordered>
         Spinners
       </Typography>
-      <Spinners.Loading variant="pulse" />
+      <Row>
+        <Col>
+          <Card alignment="center">
+            <Box>
+              <Spinners.Loading pulse />
+            </Box>
+            <Box padding={['0 2em', '0 1em']}>
+              <Typography>{`<Spinners.Loading pulse />`}</Typography>
+            </Box>
+          </Card>
+        </Col>
+        <Col>
+          <Card alignment="center">
+            <Box>
+              <Spinners.Loading />
+            </Box>
+            <Box padding={['0 2em', '0 1em']}>
+              <Typography>{`<Spinners.Loading />`}</Typography>
+            </Box>
+          </Card>
+        </Col>
+      </Row>
       <Typography variant="title2" bordered>
         Actions
       </Typography>

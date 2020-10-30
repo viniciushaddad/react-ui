@@ -1,36 +1,22 @@
 import React from 'react'
-import styled from 'styled-components'
-import { oneOf } from 'prop-types'
-import { InfiniteSpin, StepSpin } from './Spin.styles'
-import { SpinnerStyle } from './Loading.styles'
+import { bool, string } from 'prop-types'
+import { BaseIcon } from '../BaseIcon'
+import { faCircleNotch, faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 interface SpinnerProps {
-  variant?: 'spin' | 'pulse'
+  pulse?: boolean
+  color?: string
 }
 
-const Spinner = styled.img`
-  ${SpinnerStyle}
-`
+const Loading: React.FC<SpinnerProps> = ({ pulse, color }): JSX.Element => {
+  const spinner = pulse ? faSpinner : faCircleNotch
 
-const InfiniteSpinner = styled(Spinner)<{ duration: number }>`
-  ${InfiniteSpin}
-`
-
-const StepSpinner = styled(Spinner)<{ duration: number; step: number }>`
-  ${StepSpin}
-`
-
-const Loading: React.FC<SpinnerProps> = ({ variant }): JSX.Element => {
-  switch (variant) {
-    case 'pulse':
-      return <StepSpinner src="images/spinners/circles.png" step={11} duration={2} />
-    default:
-      return <InfiniteSpinner src="images/spinners/circles.png" duration={2} />
-  }
+  return <BaseIcon icon={spinner} spin pulse={pulse} color={color} />
 }
 
 Loading.propTypes = {
-  variant: oneOf(['pulse', 'spin']),
+  pulse: bool,
+  color: string,
 }
 
 export { Loading }

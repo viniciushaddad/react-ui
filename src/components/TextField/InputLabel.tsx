@@ -1,8 +1,16 @@
-import styled from 'styled-components'
+import styled, { StyledComponent } from 'styled-components'
 import { inputLabelCss } from './TextField.styles'
 import { Typography } from 'components/Typography'
+import { InputSizes } from './Input'
 
-const InputLabel = styled(Typography)`
+interface InputLabelProps {
+  touched?: boolean
+  filled?: boolean
+  inputSize?: InputSizes
+  error?: boolean
+}
+
+const InputLabel: StyledComponent<typeof Typography, InputLabelProps> = styled(Typography)`
   ${inputLabelCss}
 `
 

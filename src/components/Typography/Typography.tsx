@@ -38,7 +38,7 @@ const elements = {
   label: 'label',
 }
 
-const DynamicComponent: React.FC<TypographyProps> = ({ variant, children, bordered, ...props }: TypographyProps) => {
+const DynamicComponent: React.FC<TypographyProps> = ({ variant, children, ...props }: TypographyProps) => {
   const TypoTag = elements[variant || 'body'] as keyof JSX.IntrinsicElements
   return <TypoTag {...props}>{children}</TypoTag>
 }
@@ -51,7 +51,7 @@ const Typography = styled(DynamicComponent)`
       color: ${theme.palette[color]};
       font-family: ${theme.font.family[variant]};
       ${styles[variant]}
-      ${bordered && `border-bottom: 1px solid ${theme.palette.grayLight}`}
+      ${bordered && `border-bottom: 1px solid ${theme.palette.grayLight};`}
     `
   }}
 `

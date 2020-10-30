@@ -16,22 +16,58 @@ type Colors = {
   bg: string
   font: string
   border: string
+  hover: string
+  invertedHover: string
 }
 
 const colorsByFlavor = (flavor: ButtonFlavor): Colors => {
   const flavors = {
-    positive: { bg: 'greenLight', font: 'grayDark', border: 'greenDark' },
-    info: { bg: 'sapphireBlue', font: 'white', border: 'darkSlateBlue' },
-    warning: { bg: 'maizeCrayola', font: 'white', border: 'sandyBrown' },
-    negative: { bg: 'redWood', font: 'white', border: 'darkRed' },
-    neutral: { bg: 'grayLighter', font: 'grayDark', border: 'grayLight' },
+    positive: {
+      bg: 'inchworm',
+      font: 'white',
+      border: 'greenDarker',
+      hover: 'greenLight',
+      invertedHover: 'greenLigther',
+    },
+    info: {
+      bg: 'sapphireBlue',
+      font: 'white',
+      border: 'darkSlateBlue',
+      hover: 'darkSlateBlue',
+      invertedHover: 'blueLighter',
+    },
+    warning: {
+      bg: 'maizeCrayola',
+      font: 'white',
+      border: 'sandyBrown',
+      hover: 'sandyBrown',
+      invertedHover: 'crayolaLighter',
+    },
+    negative: { bg: 'redWood', font: 'white', border: 'darkRed', hover: 'darkRed', invertedHover: 'redLighter' },
+    neutral: {
+      bg: 'grayLighter',
+      font: 'grayDark',
+      border: 'grayLight',
+      hover: 'grayLight',
+      invertedHover: 'grayLighter',
+    },
   }
   return flavors[flavor || 'neutral']
 }
 
 const ButtonStyles = css<ButtonProps>`
+  cursor: pointer;
   margin-left: 1em;
   margin-right: 1em;
+  min-width: 15em;
+  ${({ preIcon, endIcon }) =>
+    (!!preIcon || !!endIcon) &&
+    `
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: center;
+    `}
+
   &:first-of-type {
     margin-left: 0;
   }
@@ -46,6 +82,16 @@ const ButtonStyles = css<ButtonProps>`
     border-width: ${button.border.width};
     border-radius: ${button.border.radius};
   `}
+
+  ${({ theme: { palette }, flavor }) => {
+    const { hover } = colorsByFlavor(flavor || 'neutral')
+
+    return `
+      &:hover {
+        background-color: ${palette[hover]};
+      }
+    `
+  }}
 `
 
 export { ButtonStyles, colorsByFlavor }
