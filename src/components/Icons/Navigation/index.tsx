@@ -1,5 +1,4 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faAngleDown,
   faAngleLeft,
@@ -17,25 +16,26 @@ import {
   faEllipsisH,
   faEllipsisV,
 } from '@fortawesome/free-solid-svg-icons'
+import { BaseIcon, IconProps } from '../BaseIcon'
 
-const ArrowRight = (): JSX.Element => <FontAwesomeIcon icon={faArrowRight} />
-const ArrowDown = (): JSX.Element => <FontAwesomeIcon icon={faArrowDown} />
-const ArrowLeft = (): JSX.Element => <FontAwesomeIcon icon={faArrowLeft} />
-const ArrowUp = (): JSX.Element => <FontAwesomeIcon icon={faArrowUp} />
+const ArrowRight: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faArrowRight} />
+const ArrowDown: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faArrowDown} />
+const ArrowLeft: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faArrowLeft} />
+const ArrowUp: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faArrowUp} />
 
-const AngleRight = (): JSX.Element => <FontAwesomeIcon icon={faAngleRight} />
-const AngleDown = (): JSX.Element => <FontAwesomeIcon icon={faAngleDown} />
-const AngleLeft = (): JSX.Element => <FontAwesomeIcon icon={faAngleLeft} />
-const AngleUp = (): JSX.Element => <FontAwesomeIcon icon={faAngleUp} />
+const AngleRight: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faAngleRight} />
+const AngleDown: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faAngleDown} />
+const AngleLeft: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faAngleLeft} />
+const AngleUp: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faAngleUp} />
 
-const ChevronRight = (): JSX.Element => <FontAwesomeIcon icon={faChevronRight} />
-const ChevronDown = (): JSX.Element => <FontAwesomeIcon icon={faChevronDown} />
-const ChevronLeft = (): JSX.Element => <FontAwesomeIcon icon={faChevronLeft} />
-const ChevronUp = (): JSX.Element => <FontAwesomeIcon icon={faChevronUp} />
+const ChevronRight: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faChevronRight} />
+const ChevronDown: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faChevronDown} />
+const ChevronLeft: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faChevronLeft} />
+const ChevronUp: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faChevronUp} />
 
-const MenuVertical = (): JSX.Element => <FontAwesomeIcon icon={faEllipsisV} />
-const MenuHorizontal = (): JSX.Element => <FontAwesomeIcon icon={faEllipsisH} />
-const Menu = (): JSX.Element => <FontAwesomeIcon icon={faBars} />
+const MenuVertical: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faEllipsisV} />
+const MenuHorizontal: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faEllipsisH} />
+const Menu: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faBars} />
 
 export {
   ArrowRight,

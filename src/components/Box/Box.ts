@@ -3,6 +3,7 @@ import styled from 'styled-components'
 interface BoxProps {
   padding?: string[]
   alignment?: 'center' | 'justify' | 'left' | 'right'
+  inline?: boolean
 }
 
 const Box = styled.div<BoxProps>`
@@ -18,7 +19,8 @@ const Box = styled.div<BoxProps>`
     `
   }}
 
-  ${({ alignment }) => alignment && `text-align: ${alignment}`}
+  ${({ alignment }) => alignment && `text-align: ${alignment};s`}
+  ${({ inline }) => inline && `display: inline;`}
 `
 
 export { Box }

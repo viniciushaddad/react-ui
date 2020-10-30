@@ -5,13 +5,13 @@ import {
   faInfoCircle,
   faQuestionCircle,
 } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFlag } from '@fortawesome/free-regular-svg-icons'
+import { BaseIcon, IconProps } from '../BaseIcon'
 
-const AlertCircle = (): JSX.Element => <FontAwesomeIcon icon={faExclamationCircle} />
-const AlertTriangle = (): JSX.Element => <FontAwesomeIcon icon={faExclamationTriangle} />
-const Flag = (): JSX.Element => <FontAwesomeIcon icon={faFlag} />
-const Info = (): JSX.Element => <FontAwesomeIcon icon={faInfoCircle} />
-const Help = (): JSX.Element => <FontAwesomeIcon icon={faQuestionCircle} />
+const AlertCircle: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faExclamationCircle} />
+const AlertTriangle: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faExclamationTriangle} />
+const Flag: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faFlag} />
+const Info: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faInfoCircle} />
+const Help: React.FC<IconProps> = (props): JSX.Element => <BaseIcon {...props} icon={faQuestionCircle} />
 
 export { AlertCircle, AlertTriangle, Flag, Info, Help }

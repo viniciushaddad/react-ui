@@ -20,7 +20,7 @@ type Colors = {
 
 const colorsByFlavor = (flavor: ButtonFlavor): Colors => {
   const flavors = {
-    positive: { bg: 'lightGreen', font: 'grayDark', border: 'heavyGreen' },
+    positive: { bg: 'greenLight', font: 'grayDark', border: 'greenDark' },
     info: { bg: 'sapphireBlue', font: 'white', border: 'darkSlateBlue' },
     warning: { bg: 'maizeCrayola', font: 'white', border: 'sandyBrown' },
     negative: { bg: 'redWood', font: 'white', border: 'darkRed' },
