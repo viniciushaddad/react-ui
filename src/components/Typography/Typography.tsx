@@ -19,6 +19,7 @@ type variant =
 interface TypographyProps extends Attributes {
   variant?: variant
   color?: string
+  bordered?: boolean
   children?: React.ReactNode
 }
 
@@ -37,19 +38,20 @@ const elements = {
   label: 'label',
 }
 
-const DynamicComponent: React.FC<TypographyProps> = ({ variant, children, ...props }: TypographyProps) => {
+const DynamicComponent: React.FC<TypographyProps> = ({ variant, children, bordered, ...props }: TypographyProps) => {
   const TypoTag = elements[variant || 'body'] as keyof JSX.IntrinsicElements
   return <TypoTag {...props}>{children}</TypoTag>
 }
 
 const Typography = styled(DynamicComponent)`
-  ${({ theme, variant, color }) => {
+  ${({ theme, variant, bordered, color }) => {
     variant = variant || 'body'
     color = color || 'grayDarker'
     return `
       color: ${theme.palette[color]};
       font-family: ${theme.font.family[variant]};
       ${styles[variant]}
+      ${bordered && `border-bottom: 1px solid ${theme.palette.grayLight}`}
     `
   }}
 `

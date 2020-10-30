@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 import { cardStyles } from './Card.styles'
 
-const Card = styled.div`
+export interface CardProps {
+  alignment?: 'center' | 'justify' | 'left' | 'right'
+}
+
+const Card = styled.div<CardProps>`
   ${cardStyles}
 `
 
