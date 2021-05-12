@@ -1,7 +1,6 @@
 {
-  "name": "react-ui",
+  "name": "@viniciushaddad/react-ui",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
@@ -55,5 +54,21 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.5",
     "prettier": "^2.0.5"
-  }
+  },
+  "description": "This is a study to how publish react component as a package and use it in different projects.",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viniciushaddad/react-ui.git"
+  },
+  "keywords": [
+    "react",
+    "components"
+  ],
+  "author": "Vinicius Haddad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viniciushaddad/react-ui/issues"
+  },
+  "homepage": "https://github.com/viniciushaddad/react-ui#readme"
 }
