@@ -1,4 +1,4 @@
-import React, { FC, Attributes } from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components'
 import * as styles from './Typography.styles'
 
@@ -12,14 +12,16 @@ type variant =
   | 'callout'
   | 'subhead'
   | 'footnote'
-  | 'caption'
-  | 'subcaption'
+  | 'body2'
+  | 'button'
   | 'label'
 
-interface TypographyProps extends Attributes {
+interface TypographyProps {
+  className?: string
   variant?: variant
   color?: string
   bordered?: boolean
+  htmlFor?: string
   children?: React.ReactNode
 }
 
@@ -29,18 +31,18 @@ const elements = {
   title2: 'h3',
   title3: 'h4',
   headline: 'h5',
-  body: 'p',
-  callout: 'p',
   subhead: 'h6',
+  callout: 'p',
+  body: 'p',
+  body2: 'p',
   footnote: 'p',
-  caption: 'caption',
-  subcaption: 'caption',
+  button: 'label',
   label: 'label',
 }
 
-const DynamicComponent: React.FC<TypographyProps> = ({ variant, children, ...props }: TypographyProps) => {
+const DynamicComponent: React.FC<TypographyProps> = ({ variant, children, className, htmlFor }: TypographyProps) => {
   const TypoTag = elements[variant || 'body'] as keyof JSX.IntrinsicElements
-  return <TypoTag {...props}>{children}</TypoTag>
+  return <TypoTag {...{ className, htmlFor }}>{children}</TypoTag>
 }
 
 const Typography = styled(DynamicComponent)`

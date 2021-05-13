@@ -15,6 +15,7 @@ export interface ButtonProps {
   preIcon?: ReactElement
   endIcon?: ReactElement
   loading?: boolean
+  onClick?: () => void
 }
 
 export type ButtonSizes = 'md' | 'xs' | 'lg'
@@ -27,7 +28,15 @@ const variants = {
   borderless: BorderlessButton,
 }
 
-const Button: React.FC<ButtonProps> = ({ children, variant, flavor, size, preIcon, endIcon, loading }): JSX.Element => {
+const Button: React.FC<ButtonProps> = ({
+  children,
+  variant,
+  flavor,
+  preIcon,
+  endIcon,
+  loading,
+  ...others
+}): JSX.Element => {
   const Button = variants[variant || 'primary']
   const { font, border } = colorsByFlavor(flavor || 'neutral')
   const inverted = variant === 'inverted'
@@ -36,13 +45,13 @@ const Button: React.FC<ButtonProps> = ({ children, variant, flavor, size, preIco
   const EndIconWithColour = endIcon && React.cloneElement(endIcon, { color })
 
   return (
-    <Button {...{ variant, flavor, size, preIcon, endIcon }}>
+    <Button {...{ variant, flavor, preIcon, endIcon, ...others }}>
       {loading ? (
         <Loading {...{ color }} />
       ) : (
         <>
           {PreIconWithColour}
-          <Typography variant="label" {...{ color }}>
+          <Typography variant="button" {...{ color }}>
             {children}
           </Typography>
           {EndIconWithColour}

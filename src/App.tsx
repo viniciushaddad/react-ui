@@ -3,7 +3,7 @@ import { Box } from 'components/Box'
 import { Container } from 'components/Container'
 import { Header } from 'components/Header/Header'
 import { Typography } from 'components/Typography'
-import { ButtonExample, GridExample, IconSystemExample, InputExample } from 'Examples'
+import { ButtonExample, GridExample, IconSystemExample, InputExample, TypoSystemExample } from 'Examples'
 
 const App = (): JSX.Element => (
   <Container>
@@ -13,6 +13,7 @@ const App = (): JSX.Element => (
         <Typography variant="title2">Examples below.</Typography>
       </Header>
 
+      <TypoSystemExample />
       <IconSystemExample />
       <InputExample />
       <ButtonExample />

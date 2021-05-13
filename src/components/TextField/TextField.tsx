@@ -8,15 +8,16 @@ import { useTextField } from './useTextField.hook'
 
 const TextField: React.FC<TextFieldProps> = (props: TextFieldProps) => {
   const { type, label, inputSize, fullWidth, error } = props
-  const { filled, touched, inputValue, labelOnClick, onFocus, onBlur, onInput, inputRef } = useTextField(props)
+  const { filled, touched, inputValue, labelOnClick, onFocus, onBlur, onInput, inputRef, inputId } = useTextField(props)
 
   return (
     <TextFieldWrapper>
       <InputWrapper>
-        <InputLabel {...{ touched, filled, inputSize, error, onClick: labelOnClick }} variant="label">
+        <InputLabel htmlFor={inputId} {...{ touched, filled, inputSize, error, onClick: labelOnClick }} variant="label">
           {label}
         </InputLabel>
         <Input
+          id={inputId}
           {...{ type, defaultValue: inputValue, onFocus, onInput, onBlur, ref: inputRef, inputSize, fullWidth, error }}
         />
       </InputWrapper>

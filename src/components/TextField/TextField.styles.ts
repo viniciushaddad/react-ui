@@ -25,7 +25,7 @@ const inputLabelCss = css<{ touched?: boolean; filled?: boolean; inputSize?: Inp
   position: absolute;
   left: 1em;
   top: 50%;
-  margin-top: -0.66em;
+  margin-top: -0.5em;
   transition: all 0.1s ease-in-out;
   ${({ touched, filled, theme, inputSize }) =>
     (touched || filled) &&

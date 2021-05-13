@@ -24,36 +24,40 @@ const title3 = css`
 const headline = css`
   font-size: 1.5em;
   font-weight: 400;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.6em;
 `
-const body = css`
+const subhead = css`
   font-size: 1em;
   font-weight: 300;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.9em;
 `
 const callout = css`
   font-size: 1em;
   font-weight: 300;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.9em;
+  text-transform: uppercase;
 `
-const subhead = css`
-  font-size: 0.75em;
-  font-weight: 500;
+const body = css`
+  font-size: 1em;
+  font-weight: 400;
+  margin-bottom: 1em;
+`
+const body2 = css`
+  font-size: 0.85em;
+  font-weight: 400;
+  margin-bottom: 1em;
 `
 const footnote = css`
   font-size: 0.75em;
 `
-const caption = css`
-  font-size: 0.75em;
-  font-weight: 200;
+const button = css`
+  font-weight: 600;
+  line-height: 1.5em
+  text-transform: uppercase;
 `
-const subcaption = css`
-  font-size: 0.7em;
-  font-weight: 200;
-`
-
 const label = css`
+  line-height: 1em;
   font-weight: 600;
 `
 
-export { largetitle, title1, title2, title3, headline, body, callout, subhead, footnote, caption, subcaption, label }
+export { largetitle, title1, title2, title3, headline, subhead, callout, body, body2, footnote, button, label }
