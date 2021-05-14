@@ -44,11 +44,11 @@ const IconSystemExample = (): JSX.Element => {
       <Grid>
         {chunk(Object.entries(Action), 3).map((iconsInRows, index) => (
           <Row key={`icon-row-${index}`}>
-            {iconsInRows.map(([iconName, Icon], index) => (
+            {iconsInRows.map(([iconName, Bla], index) => (
               <Col key={`icon-col-${index}`}>
                 <Card alignment="center">
                   <Box>
-                    <Icon />
+                    <Bla />
                   </Box>
                   <Box padding={['0 2em', '0 1em']}>
                     <Typography>{`<Action.${iconName} />`}</Typography>

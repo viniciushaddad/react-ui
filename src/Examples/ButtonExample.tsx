@@ -36,6 +36,13 @@ const ButtonExample = (): JSX.Element => {
         </Row>
         <Row>
           <Col>
+            <Button flavor="neutral" disabled>
+              Disabled!
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
             <Typography variant="title2" bordered>
               With icon
             </Typography>

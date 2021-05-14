@@ -52,7 +52,7 @@ const footnote = css`
 `
 const button = css`
   font-weight: 600;
-  line-height: 1.5em
+  line-height: 1.5em;
   text-transform: uppercase;
 `
 const label = css`

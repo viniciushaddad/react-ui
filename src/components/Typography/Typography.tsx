@@ -50,6 +50,7 @@ const Typography = styled(DynamicComponent)`
     variant = variant || 'body'
     color = color || 'grayDarker'
     return `
+      cursor: inherit;
       color: ${theme.palette[color]};
       font-family: ${theme.font.family[variant]};
       ${styles[variant]}

@@ -94,4 +94,60 @@ const ButtonStyles = css<ButtonProps>`
   }}
 `
 
-export { ButtonStyles, colorsByFlavor }
+const PrimaryButtonStyle = css<ButtonProps>`
+  ${({ theme: { palette }, flavor }) => {
+    const { font, bg, border } = colorsByFlavor(flavor || 'neutral')
+
+    return `
+      background-color: ${palette[bg]};
+      color: ${palette[font]};
+      border-color: ${palette[border]};
+    `
+  }}
+`
+
+const InvertedButtonStyle = css<ButtonProps>`
+  ${({ theme: { palette }, flavor, variant }) => {
+    const { font, border, invertedHover } = colorsByFlavor(flavor || 'neutral')
+
+    if (variant !== 'inverted') return ``
+
+    return `
+      background-color: ${palette[font]};
+      color: ${palette[border]};
+      border-color: ${palette[border]};
+      border-style: solid;
+
+      &:hover {
+        background-color: ${palette[invertedHover]};
+      }
+    `
+  }}
+`
+
+const BorderlessButtonStyle = css<ButtonProps>`
+  ${({ variant }) => (variant === 'borderless' ? `border: none;` : '')}
+`
+
+const DisabledButtonStyle = css<ButtonProps>`
+  ${({ theme: { palette }, disabled }) =>
+    disabled &&
+    `
+      background-color: ${palette.grayLight};
+      color: ${palette.grayMedium};
+      cursor: not-allowed;
+
+      &:hover {
+        background-color: ${palette.grayLight};
+      }
+  `}
+`
+
+export {
+  ButtonStyles,
+  PrimaryButtonStyle,
+  BorderlessButtonStyle,
+  InvertedButtonStyle,
+  DisabledButtonStyle,
+  colorsByFlavor,
+}
