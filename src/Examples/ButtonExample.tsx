@@ -10,6 +10,13 @@ const ButtonExample = (): JSX.Element => {
   const addClick = () => setClicks([...clicks, 'Clicked!'])
   const clearClicks = () => setClicks([])
 
+  const [loading, setLoading] = useState(false)
+  const load = () => {
+    if (loading) return
+    setLoading(true)
+    setTimeout(() => setLoading(false), 1000)
+  }
+
   return (
     <section>
       <Typography variant="title1">Buttons</Typography>
@@ -18,7 +25,7 @@ const ButtonExample = (): JSX.Element => {
           <Col>
             <Button>Neutral</Button>
             <Button size="xs">Small</Button>
-            <Button size="lg" endIcon={<Action.Save />}>
+            <Button size="lg" endIcon={<Action.Save size="2x" />}>
               Large
             </Button>
             <Button variant="inverted" flavor="info">
@@ -58,6 +65,9 @@ const ButtonExample = (): JSX.Element => {
             </Typography>
             <Button flavor="info" loading>
               Loading
+            </Button>
+            <Button flavor="info" {...{ loading }} onClick={load}>
+              Load !
             </Button>
           </Col>
         </Row>
