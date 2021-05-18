@@ -35,7 +35,7 @@ const theme = {
     border: {
       style: 'none',
       width: '1px',
-      radius: '0.33em',
+      radius: '0.1em',
     },
   },
   card: {

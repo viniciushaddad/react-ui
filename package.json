@@ -56,7 +56,8 @@
     "prettier": "^2.0.5"
   },
   "description": "This is a study to how publish react component as a package and use it in different projects.",
-  "main": ".eslintrc.js",
+  "main": "build/index.js",
+  "module": "build/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/viniciushaddad/react-ui.git"
