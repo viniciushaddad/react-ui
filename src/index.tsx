@@ -5,8 +5,6 @@ import { GlobalStyles } from './components/GlobalStyles'
 import theme from './themes/default'
 import * as serviceWorker from './serviceWorker'
 import { ThemeProvider } from 'styled-components'
-import * as Components from './components'
-import * as Crosscutting from './crosscutting'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -22,6 +20,3 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister()
-
-export { Components }
-export { Crosscutting }
