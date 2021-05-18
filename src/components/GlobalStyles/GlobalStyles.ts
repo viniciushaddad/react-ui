@@ -1,10 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
 
-import Mulish from 'fonts/Mulish.ttf'
-import Roboto from 'fonts/RobotoRegular.ttf'
-import ComfortaaVariable from 'fonts/ComfortaaVariable.ttf'
-import QuicksandVariable from 'fonts/QuicksandVariable.ttf'
-import SpartanVariable from 'fonts/SpartanVariable.ttf'
+import Mulish from './fonts/Mulish.ttf'
+import Roboto from './fonts/RobotoRegular.ttf'
+import ComfortaaVariable from './fonts/ComfortaaVariable.ttf'
+import QuicksandVariable from './fonts/QuicksandVariable.ttf'
+import SpartanVariable from './fonts/SpartanVariable.ttf'
 import theme from 'themes/default'
 
 const mediaQuery = (maxWidthPixels: number) => `@media (max-width: ${maxWidthPixels}px)`
