@@ -9,6 +9,7 @@ const GridExample = (): JSX.Element => {
   const [lorems, setLorems] = useState<string[]>([])
 
   useEffect(() => {
+    let mounted = true
     if (lorems.length > 0) return
 
     Promise.all([
@@ -18,7 +19,10 @@ const GridExample = (): JSX.Element => {
       getLoremIpsum({ paras: `${Math.random() * 3}`, sentences: `${Math.random() * 5}` }),
       getLoremIpsum({ paras: `${Math.random() * 10}`, sentences: `${Math.random() * 20}` }),
       getLoremIpsum({ paras: `${Math.random() * 10}`, sentences: `${Math.random() * 20}` }),
-    ]).then((responses) => setLorems(responses))
+    ]).then((responses) => {
+      if (mounted) setLorems(responses)
+    })
+    return () => (mounted = false)
   }, [lorems])
 
   return (
