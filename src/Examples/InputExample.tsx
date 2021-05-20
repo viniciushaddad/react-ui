@@ -9,14 +9,15 @@ const InputExample = (): JSX.Element => {
   return (
     <section>
       <Typography variant="title1">Text Input</Typography>
-      <TextField label="Example Label" type="text" />
-      <TextField label="Example Label" type="text" fullWidth />
-      <TextField label="Example Label" type="text" inputSize="lg" />
-      <TextField label="Example Label" type="text" inputSize="xs" />
+      <TextField name="input-name" label="Example Label" type="text" />
+      <TextField name="input-name" label="Example Label" type="text" fullWidth />
+      <TextField name="input-name" label="Example Label" type="text" inputSize="lg" />
+      <TextField name="input-name" label="Example Label" type="text" inputSize="xs" />
       <Grid>
         <Row>
           <Col size={2}>
             <TextField
+              name="input-name"
               label="Example Label"
               type="text"
               value={badField}

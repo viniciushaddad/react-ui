@@ -7,18 +7,29 @@ import { TextFieldWrapper } from './TextFieldWrapper'
 import { useTextField } from './useTextField.hook'
 
 const TextField: React.FC<TextFieldProps> = (props: TextFieldProps) => {
-  const { type, label, inputSize, fullWidth, error } = props
-  const { filled, touched, inputValue, labelOnClick, onFocus, onBlur, onInput, inputRef, inputId } = useTextField(props)
+  const { type, label, inputSize, fullWidth, error, name } = props
+  const { filled, touched, inputValue, onFocus, onBlur, onInput, inputRef, inputId } = useTextField(props)
 
   return (
     <TextFieldWrapper>
       <InputWrapper>
-        <InputLabel htmlFor={inputId} {...{ touched, filled, inputSize, error, onClick: labelOnClick }} variant="label">
+        <InputLabel htmlFor={inputId} {...{ touched, filled, inputSize, error }} variant="label">
           {label}
         </InputLabel>
         <Input
           id={inputId}
-          {...{ type, defaultValue: inputValue, onFocus, onInput, onBlur, ref: inputRef, inputSize, fullWidth, error }}
+          {...{
+            name,
+            type,
+            defaultValue: inputValue,
+            onFocus,
+            onInput,
+            onBlur,
+            ref: inputRef,
+            inputSize,
+            fullWidth,
+            error,
+          }}
         />
       </InputWrapper>
       {error && <TextFieldError variant="label">{error}</TextFieldError>}

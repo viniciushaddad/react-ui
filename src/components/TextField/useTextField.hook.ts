@@ -6,7 +6,6 @@ interface TextFieldHookProps {
   filled?: boolean
   touched?: boolean
   inputValue: string
-  labelOnClick: () => void
   onFocus: () => void
   onBlur: () => void
   onInput: (e: React.FormEvent<HTMLInputElement>) => void
@@ -29,13 +28,10 @@ const useTextField = ({ value, onValueChange }: TextFieldProps): TextFieldHookPr
 
     if (onValueChange) onValueChange('value')
   }
-  const labelOnClick = () => inputRef.current?.focus()
-
   return {
     filled,
     touched,
     inputValue,
-    labelOnClick,
     onFocus,
     onBlur,
     onInput,

@@ -11,6 +11,7 @@ export type InputSizes = 'md' | 'xs' | 'lg'
 
 export interface TextFieldProps {
   label: string
+  name: string
   type:
     | 'button'
     | 'checkbox'
