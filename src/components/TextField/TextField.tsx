@@ -8,7 +8,7 @@ import { useTextField } from './useTextField.hook'
 
 const TextField: React.FC<TextFieldProps> = (props: TextFieldProps) => {
   const { label, error, inputSize, ...rest } = props
-  const { filled, touched, inputValue, onFocus, onBlur, onInput, inputRef, inputId } = useTextField(props)
+  const { filled, touched, onFocus, onBlur, onInput, inputRef, inputId } = useTextField(props)
 
   return (
     <TextFieldWrapper>
@@ -16,11 +16,7 @@ const TextField: React.FC<TextFieldProps> = (props: TextFieldProps) => {
         <InputLabel htmlFor={inputId} {...{ touched, filled, inputSize, error }} variant="label">
           {label}
         </InputLabel>
-        <Input
-          id={inputId}
-          {...rest}
-          {...{ defaultValue: inputValue, onFocus, onInput, onBlur, ref: inputRef, error, inputSize }}
-        />
+        <Input id={inputId} {...rest} {...{ onFocus, onInput, onBlur, ref: inputRef, error, inputSize }} />
       </InputWrapper>
       {error && <TextFieldError variant="label">{error}</TextFieldError>}
     </TextFieldWrapper>
