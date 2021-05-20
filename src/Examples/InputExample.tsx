@@ -21,7 +21,7 @@ const InputExample = (): JSX.Element => {
               label="Example Label"
               type="text"
               value={badField}
-              onValueChange={setBadField}
+              onChange={setBadField}
               error="some validation has failed!"
               fullWidth
             />

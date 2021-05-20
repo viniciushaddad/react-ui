@@ -36,7 +36,7 @@ export interface TextFieldProps {
     | 'url'
     | 'week'
   value?: string
-  onValueChange?: (value: string) => void
+  onChange?: (value: string) => void
   fullWidth?: boolean
   inputSize?: InputSizes
   error?: string

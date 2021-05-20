@@ -13,7 +13,7 @@ interface TextFieldHookProps {
   inputId: string
 }
 
-const useTextField = ({ value, onValueChange }: TextFieldProps): TextFieldHookProps => {
+const useTextField = ({ value, onChange }: TextFieldProps): TextFieldHookProps => {
   const [inputValue, setInputValue] = useState(value || '')
   const [touched, setTouched] = useState(false)
   const [filled, setFilled] = useState(inputValue.length > 0)
@@ -26,7 +26,7 @@ const useTextField = ({ value, onValueChange }: TextFieldProps): TextFieldHookPr
     setFilled(e.currentTarget.value.length > 0)
     setInputValue(e.currentTarget.value)
 
-    if (onValueChange) onValueChange('value')
+    if (onChange) onChange('value')
   }
   return {
     filled,

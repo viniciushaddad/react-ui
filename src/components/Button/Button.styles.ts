@@ -92,6 +92,8 @@ const ButtonStyles = css<ButtonProps>`
       }
     `
   }}
+
+  ${({ block }) => block && `width: 100%;`}
 `
 
 const PrimaryButtonStyle = css<ButtonProps>`

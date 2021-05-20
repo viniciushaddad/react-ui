@@ -15,6 +15,7 @@ export interface ButtonProps {
   loading?: boolean
   disabled?: boolean
   onClick?: () => void
+  block?: boolean
 }
 
 export type ButtonSizes = 'md' | 'xs' | 'lg'
