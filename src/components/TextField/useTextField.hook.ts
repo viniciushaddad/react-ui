@@ -25,8 +25,6 @@ const useTextField = ({ value, onChange }: TextFieldProps): TextFieldHookProps =
   const onInput = (e: React.FormEvent<HTMLInputElement>) => {
     setFilled(e.currentTarget.value.length > 0)
     setInputValue(e.currentTarget.value)
-
-    if (onChange) onChange('value')
   }
   return {
     filled,

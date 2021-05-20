@@ -7,7 +7,7 @@ import { TextFieldWrapper } from './TextFieldWrapper'
 import { useTextField } from './useTextField.hook'
 
 const TextField: React.FC<TextFieldProps> = (props: TextFieldProps) => {
-  const { type, label, inputSize, fullWidth, error, name } = props
+  const { label, error, inputSize, ...rest } = props
   const { filled, touched, inputValue, onFocus, onBlur, onInput, inputRef, inputId } = useTextField(props)
 
   return (
@@ -19,16 +19,14 @@ const TextField: React.FC<TextFieldProps> = (props: TextFieldProps) => {
         <Input
           id={inputId}
           {...{
-            name,
-            type,
+            ...rest,
             defaultValue: inputValue,
             onFocus,
             onInput,
             onBlur,
             ref: inputRef,
-            inputSize,
-            fullWidth,
             error,
+            inputSize,
           }}
         />
       </InputWrapper>

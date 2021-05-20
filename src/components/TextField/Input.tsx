@@ -1,3 +1,4 @@
+import { ChangeEvent, ChangeEventHandler } from 'react'
 import styled, { StyledComponent } from 'styled-components'
 import { inputCss } from './TextField.styles'
 
@@ -36,7 +37,7 @@ export interface TextFieldProps {
     | 'url'
     | 'week'
   value?: string
-  onChange?: (value: string) => void
+  onChange?: ChangeEventHandler<HTMLInputElement>
   fullWidth?: boolean
   inputSize?: InputSizes
   error?: string

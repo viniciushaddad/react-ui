@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import { TextField } from 'components/TextField'
 import { Typography } from 'components/Typography'
 import { Grid, Row, Col } from 'components/Grid'
 
 const InputExample = (): JSX.Element => {
   const [badField, setBadField] = useState('a bad value for this input!')
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => setBadField(event.currentTarget.value)
 
   return (
     <section>
@@ -21,7 +22,7 @@ const InputExample = (): JSX.Element => {
               label="Example Label"
               type="text"
               value={badField}
-              onChange={setBadField}
+              onChange={onChange}
               error="some validation has failed!"
               fullWidth
             />
