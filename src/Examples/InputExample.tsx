@@ -5,7 +5,10 @@ import { Grid, Row, Col } from 'components/Grid'
 
 const InputExample = (): JSX.Element => {
   const [badField, setBadField] = useState('a bad value for this input!')
-  const onChange = (event: ChangeEvent<HTMLInputElement>) => setBadField(event.currentTarget.value)
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+    console.error(event.currentTarget.value)
+    setBadField(event.currentTarget.value)
+  }
 
   return (
     <section>

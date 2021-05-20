@@ -18,16 +18,8 @@ const TextField: React.FC<TextFieldProps> = (props: TextFieldProps) => {
         </InputLabel>
         <Input
           id={inputId}
-          {...{
-            ...rest,
-            defaultValue: inputValue,
-            onFocus,
-            onInput,
-            onBlur,
-            ref: inputRef,
-            error,
-            inputSize,
-          }}
+          {...rest}
+          {...{ defaultValue: inputValue, onFocus, onInput, onBlur, ref: inputRef, error, inputSize }}
         />
       </InputWrapper>
       {error && <TextFieldError variant="label">{error}</TextFieldError>}
