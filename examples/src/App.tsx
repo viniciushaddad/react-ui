@@ -13,12 +13,11 @@ const App = (): JSX.Element => (
         <Typography variant="largetitle">Styled Components to compose Basic UIs with themes!</Typography>
         <Typography variant="title2">Examples below.</Typography>
       </Header>
-
       <TypoSystemExample />
-      <IconSystemExample />
-      <InputExample />
       <ButtonExample />
       <GridExample />
+      <InputExample />
+      <IconSystemExample />
     </Box>
   </Container>
 )

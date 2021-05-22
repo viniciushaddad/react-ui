@@ -1,11 +1,13 @@
-import { createGlobalStyle } from 'styled-components'
-
+import React, { ReactElement } from 'react'
+import { merge } from 'lodash'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import Mulish from './fonts/Mulish.ttf'
 import Roboto from './fonts/RobotoRegular.ttf'
 import ComfortaaVariable from './fonts/ComfortaaVariable.ttf'
 import QuicksandVariable from './fonts/QuicksandVariable.ttf'
 import SpartanVariable from './fonts/SpartanVariable.ttf'
-import theme from '../../themes/default'
+import defaultTheme from '../../themes/default'
+import { element, object } from 'prop-types'
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -40,21 +42,28 @@ const GlobalStyles = createGlobalStyle`
   }
 
   * {
-    font-family: ${theme.font.family.body};
+    font-family: ${defaultTheme.font.family.body};
     padding: 0;
     margin: 0;
     box-sizing: border-box;
   }
   :root {
-    font-size: ${theme.font.sizes.web};
+    font-size: ${defaultTheme.font.sizes.web};
 
-    ${theme.media.tablet} {
-      font-size: ${theme.font.sizes.tablet};
+    ${defaultTheme.media.tablet} {
+      font-size: ${defaultTheme.font.sizes.tablet};
     }
-    ${theme.media.phone} {
-      font-size: ${theme.font.sizes.phone};
+    ${defaultTheme.media.phone} {
+      font-size: ${defaultTheme.font.sizes.phone};
     }
   }
 `
+const ApplyTheme: React.FC<{ children?: ReactElement; theme?: unknown }> = ({ children, theme }) => (
+  <ThemeProvider theme={merge(defaultTheme, theme || {})}>
+    <GlobalStyles />
+    {children}
+  </ThemeProvider>
+)
+ApplyTheme.propTypes = { children: element, theme: object }
 
-export { GlobalStyles }
+export { ApplyTheme }

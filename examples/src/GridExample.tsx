@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
 import { Row, Grid, Col, Typography, Box } from '@viniciushaddad/react-ui'
 import { getLoremIpsum } from './api/loremIpsum'
-import styled from 'styled-components'
 
-const ColoreDiv = styled.div<{bg: string}>`
-  background-color: ${({ theme: {palette}, bg}) => palette[bg]};
+const ColoredDiv = styled.div<{bg: string}>`
+  background-color: ${({theme, bg}) => theme?.palette && theme.palette[bg]};
 `
 
 const GridExample = (): JSX.Element => {
@@ -35,51 +35,51 @@ const GridExample = (): JSX.Element => {
       <Grid>
         <Row>
           <Col size={1}>
-            <ColoreDiv bg={'grayMedium'}>
+            <ColoredDiv bg="grayMedium">
               <Box>
                 <Typography>{lorems[0]}</Typography>
               </Box>
-            </ColoreDiv>
+            </ColoredDiv>
           </Col>
           <Col size={2}>
-            <ColoreDiv bg={'inchworm'}>
+            <ColoredDiv bg="inchworm">
               <Box>
                 <Typography>{lorems[1]}</Typography>
               </Box>
-            </ColoreDiv>
+            </ColoredDiv>
           </Col>
         </Row>
         <Row>
           <Col size={1}>
-            <ColoreDiv bg={'keppel'}>
+            <ColoredDiv bg="keppel">
               <Box>
                 <Typography>{lorems[2]}</Typography>
               </Box>
-            </ColoreDiv>
+            </ColoredDiv>
           </Col>
         </Row>
         <Row>
           <Col size={1}>
-            <ColoreDiv bg={'blueMunsell'}>
+            <ColoredDiv bg="blueMunsell">
               <Box>
                 <Typography>{lorems[3]}</Typography>
               </Box>
-            </ColoreDiv>
+            </ColoredDiv>
           </Col>
           <Col size={3}>
-            <ColoreDiv bg={'maizeCrayola'}>
+            <ColoredDiv bg="maizeCrayola">
               <Box>
                 <Typography>{lorems[4]}</Typography>
               </Box>
-            </ColoreDiv>
+            </ColoredDiv>
           </Col>
           <Col size={2} xs="hide">
-            <ColoreDiv bg={'sandyBrown'}>
+            <ColoredDiv bg="sandyBrown">
               <Box>
                 <Typography variant="title1">Hides on XS!</Typography>
                 <Typography>{lorems[5]}</Typography>
               </Box>
-            </ColoreDiv>
+            </ColoredDiv>
           </Col>
         </Row>
       </Grid>

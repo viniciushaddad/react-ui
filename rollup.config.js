@@ -1,5 +1,7 @@
 import typescript from 'rollup-plugin-typescript2'
 import url from 'rollup-plugin-url'
+import analyze from 'rollup-plugin-analyzer'
+import { createTransformer } from 'typescript-plugin-styled-components'
 import pkg from './package.json'
 
 export default {
@@ -21,7 +23,14 @@ export default {
       // are always bundled with the code, not copied to /dist
       limit: Infinity,
     }),
-    typescript(),
+    typescript({
+      transformers: [
+        () => ({
+          before: [createTransformer()],
+        }),
+      ],
+    }),
+    analyze(),
   ],
-  external: ['react', 'react-dom'],
+  external: ['prop-types', 'react', 'react-dom', 'lodash', 'styled-components'],
 }

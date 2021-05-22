@@ -1,15 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { ThemeProvider } from 'styled-components'
 import App from './App'
-import { applyTheme, GlobalStyles } from '@viniciushaddad/react-ui'
+import { ApplyTheme } from '@viniciushaddad/react-ui'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={applyTheme({})}>
-      <GlobalStyles />
+    <ApplyTheme>
       <App />
-    </ThemeProvider>
+    </ApplyTheme>
   </React.StrictMode>,
   document.getElementById('root'),
 )
