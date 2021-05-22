@@ -14,7 +14,6 @@ export default {
     },
   ],
   plugins: [
-    typescript(),
     url({
       // by default, rollup-plugin-url will not handle font files
       include: ['**/*.ttf'],
@@ -22,6 +21,7 @@ export default {
       // are always bundled with the code, not copied to /dist
       limit: Infinity,
     }),
+    typescript(),
   ],
   external: ['react', 'react-dom'],
 }
