@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { merge } from 'lodash'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import Mulish from './fonts/Mulish.ttf'
@@ -7,7 +7,7 @@ import ComfortaaVariable from './fonts/ComfortaaVariable.ttf'
 import QuicksandVariable from './fonts/QuicksandVariable.ttf'
 import SpartanVariable from './fonts/SpartanVariable.ttf'
 import defaultTheme from '../../themes/default'
-import { element, object } from 'prop-types'
+import { node, object, ReactNodeLike } from 'prop-types'
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -58,12 +58,12 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 `
-const ApplyTheme: React.FC<{ children?: ReactElement; theme?: unknown }> = ({ children, theme }) => (
+const ApplyTheme: React.FC<{ children?: ReactNodeLike; theme?: unknown }> = ({ children, theme }) => (
   <ThemeProvider theme={merge(defaultTheme, theme || {})}>
     <GlobalStyles />
     {children}
   </ThemeProvider>
 )
-ApplyTheme.propTypes = { children: element, theme: object }
+ApplyTheme.propTypes = { children: node, theme: object }
 
 export { ApplyTheme }
