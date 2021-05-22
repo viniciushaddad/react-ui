@@ -1,8 +1,7 @@
 import styled from 'styled-components'
-import { inputWrapperCss } from './TextField.styles'
 
 const InputWrapper = styled.div`
-  ${inputWrapperCss}
+  margin-bottom: 1.5em;
 `
 
 export { InputWrapper }

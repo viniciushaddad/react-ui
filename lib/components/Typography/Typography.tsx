@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import styled from 'styled-components'
 import * as styles from './Typography.styles'
 
-type variant =
+export type TypographyVariant =
   | 'largetitle'
   | 'title1'
   | 'title2'
@@ -18,11 +18,12 @@ type variant =
 
 export interface TypographyProps {
   className?: string
-  variant?: variant
+  variant?: TypographyVariant
   color?: string
   bordered?: boolean
   htmlFor?: string
   children?: React.ReactNode
+  align?: 'left' | 'right' | 'center' | 'justify'
 }
 
 const elements = {
@@ -46,10 +47,11 @@ const DynamicComponent: React.FC<TypographyProps> = ({ variant, children, classN
 }
 
 const Typography = styled(DynamicComponent)`
-  ${({ theme, variant, bordered, color }) => {
+  ${({ theme, variant, bordered, color, align }) => {
     variant = variant || 'body'
     color = color || 'grayDarker'
     return `
+      ${align && `text-align: ${align};`}
       cursor: inherit;
       color: ${theme.palette[color]};
       font-family: ${theme.font.family[variant]};

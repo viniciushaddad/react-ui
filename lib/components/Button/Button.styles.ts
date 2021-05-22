@@ -60,8 +60,9 @@ const ButtonStyles = css<ButtonProps>`
   margin-left: 1em;
   margin-right: 1em;
   min-width: 15em;
-  ${({ preIcon, endIcon }) =>
-    (!!preIcon || !!endIcon) &&
+  ${({ preIcon, endIcon, loading }) =>
+    !loading &&
+    (preIcon || endIcon) &&
     `
       display: inline-flex;
       justify-content: space-between;

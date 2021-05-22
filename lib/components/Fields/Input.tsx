@@ -1,12 +1,15 @@
 import { ChangeEventHandler } from 'react'
 import styled, { StyledComponent } from 'styled-components'
-import { inputCss } from './TextField.styles'
+import { inputCss } from './Input.styles'
 
 const Input: StyledComponent<'input', TextFieldProps> = styled.input<TextFieldProps>`
   ${inputCss}
 `
+const CurrencyInput: StyledComponent<'input', TextFieldProps> = styled.input<TextFieldProps>`
+  ${inputCss}
+`
 
-export { Input }
+export { Input, CurrencyInput }
 
 export type InputSizes = 'md' | 'xs' | 'lg'
 
