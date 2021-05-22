@@ -7,15 +7,6 @@ import QuicksandVariable from './fonts/QuicksandVariable.ttf'
 import SpartanVariable from './fonts/SpartanVariable.ttf'
 import theme from '../../themes/default'
 
-const mediaQuery = (maxWidthPixels: number) => `@media (max-width: ${maxWidthPixels}px)`
-
-const media = {
-  custom: mediaQuery,
-  phone: mediaQuery(theme.screen.phone),
-  tablet: mediaQuery(theme.screen.tablet),
-  desktop: mediaQuery(theme.screen.web),
-}
-
 const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: Comfortaa;
@@ -57,10 +48,10 @@ const GlobalStyles = createGlobalStyle`
   :root {
     font-size: ${theme.font.sizes.web};
 
-    ${media.tablet} {
+    ${theme.media.tablet} {
       font-size: ${theme.font.sizes.tablet};
     }
-    ${media.phone} {
+    ${theme.media.phone} {
       font-size: ${theme.font.sizes.phone};
     }
   }

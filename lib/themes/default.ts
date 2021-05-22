@@ -2,7 +2,17 @@ const PHONE_WIDTH_IN_PIXELS = 576
 const TABLET_WIDTH_IN_PIXELS = 768
 const WEB_WIDTH_IN_PIXELS = 1024
 
+const mediaQuery = (widthPixels: number, property = 'max-width'): string => `@media (${property}: ${widthPixels}px)`
+
+const media = {
+  custom: mediaQuery,
+  phone: mediaQuery(PHONE_WIDTH_IN_PIXELS),
+  tablet: mediaQuery(TABLET_WIDTH_IN_PIXELS),
+  desktop: mediaQuery(WEB_WIDTH_IN_PIXELS),
+}
+
 const theme = {
+  media,
   screen: {
     phone: PHONE_WIDTH_IN_PIXELS,
     tablet: TABLET_WIDTH_IN_PIXELS,

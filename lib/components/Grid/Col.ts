@@ -13,7 +13,7 @@ const Col = styled.div<ColProps>`
   &:not(:last-child) {
     margin-bottom: 1em;
   }
-  @media (max-width: ${theme.screen.tablet}px) {
+  ${theme.media.tablet} {
     ${xs === 'hide' && 'display: none;'}
   }
   @media (min-width: ${theme.screen.tablet}px){

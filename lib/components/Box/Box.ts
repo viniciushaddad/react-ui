@@ -13,7 +13,7 @@ const Box = styled.div<BoxProps>`
     return `
       padding: ${padding[0] || '2em'};
 
-      @media (max-width: ${theme.screen.tablet}px) {
+      ${theme.media.tablet} {
         padding: ${padding[1] || '1em'};
       }
     `

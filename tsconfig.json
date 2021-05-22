@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "declaration": true,
     "target": "es5",
     "lib": [
       "dom",
@@ -22,7 +23,5 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["lib/**/*"],
-  "exclude": [
-    "examples"
-  ]
+  "exclude": ["node_modules", "build", "dist", "examples", "rollup.config.js"]
 }

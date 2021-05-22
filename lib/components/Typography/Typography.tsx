@@ -16,7 +16,7 @@ type variant =
   | 'button'
   | 'label'
 
-interface TypographyProps {
+export interface TypographyProps {
   className?: string
   variant?: variant
   color?: string

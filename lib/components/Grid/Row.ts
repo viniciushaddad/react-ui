@@ -7,7 +7,7 @@ interface RowProps {
 const Row = styled.div`
   display: flex;
   margin-bottom: 2em;
-  @media (max-width: ${({ theme }) => theme.screen.tablet}px) {
+  ${({ theme }) => theme.media.tablet} {
     margin-bottom: 1em;
     flex-direction: column;
   }

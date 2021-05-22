@@ -20,6 +20,10 @@ const labelSizes = {
   },
 }
 
+const textFieldErrorCss = css`
+  color: ${({ theme }) => theme.palette.redWood};
+`
+
 const inputLabelCss = css<{ touched?: boolean; filled?: boolean; inputSize?: InputSizes; error?: string }>`
   ${({ inputSize }) => labelSizes[inputSize || 'md']}
   position: absolute;
@@ -68,10 +72,6 @@ const inputCss = css<TextFieldProps>`
     ${inputSizes[inputSize || 'md']}
     ${error && `border-color: ${palette.redWood};`}
   `}
-`
-
-const textFieldErrorCss = css`
-  color: ${({ theme }) => theme.palette.redWood};
 `
 
 export { inputWrapperCss, inputCss, inputLabelCss, textFieldErrorCss, textFieldWrapperCss }
