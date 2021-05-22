@@ -5,11 +5,8 @@ import { inputCss } from './Input.styles'
 const Input: StyledComponent<'input', TextFieldProps> = styled.input<TextFieldProps>`
   ${inputCss}
 `
-const CurrencyInput: StyledComponent<'input', TextFieldProps> = styled.input<TextFieldProps>`
-  ${inputCss}
-`
 
-export { Input, CurrencyInput }
+export { Input }
 
 export type InputSizes = 'md' | 'xs' | 'lg'
 
