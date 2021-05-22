@@ -2,6 +2,7 @@ import typescript from 'rollup-plugin-typescript2'
 import url from 'rollup-plugin-url'
 import analyze from 'rollup-plugin-analyzer'
 import { createTransformer } from 'typescript-plugin-styled-components'
+import external from 'rollup-plugin-peer-deps-external'
 import pkg from './package.json'
 
 export default {
@@ -16,6 +17,7 @@ export default {
     },
   ],
   plugins: [
+    external(),
     url({
       // by default, rollup-plugin-url will not handle font files
       include: ['**/*.ttf'],
@@ -32,5 +34,4 @@ export default {
     }),
     analyze(),
   ],
-  external: ['prop-types', 'react', 'react-dom', 'lodash', 'styled-components'],
 }

@@ -19,6 +19,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/styled-components": "^4.4.1",
     "lodash": "^4.17.20",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-components": "^4.4.1"
@@ -27,7 +28,8 @@
     "build": "rm -rf dist && rollup -c",
     "develop": "rollup -c -w",
     "format": "prettier --write lib/**/*.{ts,tsx}",
-    "lint": "eslint --fix lib/**/*.{ts,tsx}"
+    "lint": "eslint --fix lib/**/*.{ts,tsx}",
+    "develop:link": ". ./bin/link.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
