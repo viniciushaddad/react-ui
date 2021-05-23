@@ -43,7 +43,8 @@ const elements = {
 
 const DynamicComponent: React.FC<TypographyProps> = ({ variant, children, className, htmlFor }: TypographyProps) => {
   const TypoTag = elements[variant || 'body'] as keyof JSX.IntrinsicElements
-  return <TypoTag {...{ className, htmlFor }}>{children}</TypoTag>
+  const props = { className, htmlFor }
+  return <TypoTag {...props}>{children}</TypoTag>
 }
 
 const Typography = styled(DynamicComponent)`

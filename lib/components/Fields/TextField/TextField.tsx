@@ -18,7 +18,7 @@ const TextField: React.FC<TextFieldProps> = ({ label, error, ...rest }: TextFiel
         <Label {...labelProps}>{label}</Label>
         <Input {...inputProps} />
       </Container>
-      {error && <FieldError variant="label">{error}</FieldError>}
+      {error && <FieldError text={error} />}
     </InputWrapper>
   )
 }

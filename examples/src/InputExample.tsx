@@ -2,11 +2,8 @@ import React, { ChangeEvent, useState } from 'react'
 import { TextField, MaskedField, Typography, Grid, Row, Col } from '@viniciushaddad/react-ui'
 
 const InputExample = (): JSX.Element => {
-  const [badField, setBadField] = useState('a bad value for this input!')
-  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-    console.error(event.currentTarget.value)
-    setBadField(event.currentTarget.value)
-  }
+  const [badField, setBadField] = useState('Foo!')
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => setBadField(event.currentTarget.value)
 
   return (
     <section>
@@ -24,7 +21,7 @@ const InputExample = (): JSX.Element => {
               type="text"
               value={badField}
               onChange={onChange}
-              error="some validation has failed!"
+              error="this input has an invalid value!"
               fullWidth
             />
           </Col>

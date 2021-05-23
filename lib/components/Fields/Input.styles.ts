@@ -28,6 +28,13 @@ const inputCss = css<TextFieldProps>`
     border-color: ${palette.grayLight};
     ${fullWidth ? 'width: 100%;' : ''}
     ${inputSizes[inputSize || 'md']}
+
+    &:focus, &:focus-visible {
+      outline: transparent;
+      box-shadow: ${palette.grayLight} 0px 5px 15px 0px;
+      border-color: ${error ? palette.redWood : palette.grayLight}a8;
+  }
+
     ${error && `border-color: ${palette.redWood};`}
   `}
 `

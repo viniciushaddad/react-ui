@@ -32,7 +32,7 @@ const useTextField = ({ value, inputSize, error, ...rest }: TextFieldProps): Tex
   }
 
   const labelProps = { htmlFor: inputId, variant: 'label' as TypographyVariant, touched, filled, inputSize, error }
-  const inputProps = { ...rest, id: inputId, ref: inputRef, onFocus, onInput, onBlur, error, inputSize }
+  const inputProps = { ...rest, id: inputId, ref: inputRef, value, onFocus, onInput, onBlur, error, inputSize }
   return {
     labelProps,
     inputProps,

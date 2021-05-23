@@ -25,6 +25,7 @@ const labelSizes = {
 const Styles = css<LabelProps>`
   ${({ inputSize, touched, filled, error, theme }) => `
   ${labelSizes[inputSize || 'md']}
+  color: ${theme.palette.grayDark};
   position: absolute;
   left: 1em;
   top: 50%;

@@ -19,7 +19,7 @@ const MaskedField = ({ label, error, ...rest }: MaskedFieldProps): JSX.Element =
         <Label {...labelProps}>{label}</Label>
         <MaskedTextField {...maskedProps} render={(ref, props) => <Input ref={ref} {...inputProps} {...props} />} />
       </Container>
-      {error && <FieldError variant="label">{error}</FieldError>}
+      {error && <FieldError text={error} />}
     </InputWrapper>
   )
 }
