@@ -27,7 +27,7 @@ const InputExample = (): JSX.Element => {
           </Col>
           <Col>
             <MaskedField
-              mask={[/[0-3]/,/\d/, '/', /[0-1]/, /\d/,'/', /\d/, /\d/, /\d/, /\d/]}
+              mask={['(', /[1-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
               name="input-name"
               label="Example Masked Input"
               type="text"

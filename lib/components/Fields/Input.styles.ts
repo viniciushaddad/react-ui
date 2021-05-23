@@ -4,18 +4,18 @@ import { TextFieldProps } from './Input'
 const inputSizes = {
   md: `
     font-size: 1em;
-    line-height: 1.5em;
+    line-height: 2em;
     padding: .5em 1em;
   `,
   xs: `
     font-size: .85em;
-    line-height: 1.2em;
-    padding: .5em .85em;
+    line-height: 1.5em;
+    padding: .75em 1em;
   `,
   lg: `
     font-size: 1.5em;
     line-height: 1em;
-    padding: .8em 1.5em;
+    padding: .8em 1em;
   `,
 }
 

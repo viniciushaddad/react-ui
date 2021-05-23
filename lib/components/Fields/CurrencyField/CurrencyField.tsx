@@ -13,10 +13,23 @@ const defaultCurrencyOptions = {
   decimalLimit: 2,
   integerLimit: 7,
 }
+export type CurrencyFieldProps = {
+  inputMode?: string
+  currencyOptions?: typeof defaultCurrencyOptions
+} & TextFieldProps
 
-const CurrencyField = (props: TextFieldProps): JSX.Element => {
-  const mask = createNumberMask(defaultCurrencyOptions)
-  return <MaskedField {...props} mask={mask} />
+const useCurrency = ({ currencyOptions, ...rest }: CurrencyFieldProps) => {
+  const mask = createNumberMask({ ...defaultCurrencyOptions, ...currencyOptions })
+  return {
+    ...rest,
+    showMask: false,
+    mask,
+  }
+}
+
+const CurrencyField = (props: CurrencyFieldProps): JSX.Element => {
+  const maskProps = useCurrency(props)
+  return <MaskedField {...maskProps} />
 }
 
 export { CurrencyField }

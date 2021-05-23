@@ -20,11 +20,21 @@ interface MaskedFieldHookProps {
 }
 
 export interface MaskedFieldProps extends TextFieldProps {
+  inputMode?: string
+  showMask?: boolean
   mask: Array<string | RegExp> | boolean
   render?: (ref: RefObject<HTMLInputElement>, props: InputProps) => JSX.Element
 }
 
-const useMaskedField = ({ value, inputSize, error, mask, ...rest }: MaskedFieldProps): MaskedFieldHookProps => {
+const useMaskedField = ({
+  value,
+  inputSize,
+  error,
+  mask,
+  showMask = false,
+  inputMode,
+  ...rest
+}: MaskedFieldProps): MaskedFieldHookProps => {
   const [touched, setTouched] = useState(false)
   const [filled, setFilled] = useState(value ? value.length > 0 : false)
   const [inputId] = useState(() => uniqueId('input-id'))
@@ -35,7 +45,7 @@ const useMaskedField = ({ value, inputSize, error, mask, ...rest }: MaskedFieldP
 
   const labelProps = { htmlFor: inputId, variant: 'label' as TypographyVariant, touched, filled, inputSize, error }
   const inputProps = { ...rest, id: inputId, onFocus, onInput, onBlur, error, inputSize }
-  const maskedProps = { mask, id: inputId }
+  const maskedProps = { mask, id: inputId, showMask, inputMode }
   return {
     inputProps,
     labelProps,

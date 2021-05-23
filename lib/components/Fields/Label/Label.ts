@@ -27,7 +27,7 @@ const Styles = css<LabelProps>`
   ${labelSizes[inputSize || 'md']}
   color: ${theme.palette.grayDark};
   position: absolute;
-  left: 1em;
+  left: ${inputSize != 'lg' ? '1em' : '1.5em'};
   top: 50%;
   margin-top: -0.5em;
   transition: all 0.1s ease-in-out;
