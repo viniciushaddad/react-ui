@@ -31,9 +31,7 @@ const useMaskedField = ({ value, inputSize, error, mask, ...rest }: MaskedFieldP
 
   const onFocus = () => setTouched(true)
   const onBlur = () => setTouched(false)
-  const onInput = (e: React.FormEvent<HTMLInputElement>) => {
-    setFilled(e.currentTarget.value.length > 0)
-  }
+  const onInput = (e: React.FormEvent<HTMLInputElement>) => setFilled(e.currentTarget.value.length > 0)
 
   const labelProps = { htmlFor: inputId, variant: 'label' as TypographyVariant, touched, filled, inputSize, error }
   const inputProps = { ...rest, id: inputId, onFocus, onInput, onBlur, error, inputSize }

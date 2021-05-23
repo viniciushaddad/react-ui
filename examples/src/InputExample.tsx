@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react'
-import { TextField, MaskedField, Typography, Grid, Row, Col } from '@viniciushaddad/react-ui'
+import { TextField, MaskedField, Typography, Grid, Row, Col, CurrencyField } from '@viniciushaddad/react-ui'
 
 const InputExample = (): JSX.Element => {
   const [badField, setBadField] = useState('Foo!')
@@ -14,10 +14,10 @@ const InputExample = (): JSX.Element => {
       <TextField name="input-xs" label=" size xs" type="text" inputSize="xs" />
       <Grid>
         <Row>
-          <Col size={2}>
+          <Col>
             <TextField
               name="input-on-change"
-              label="Example Label"
+              label="Example with Error"
               type="text"
               value={badField}
               onChange={onChange}
@@ -25,15 +25,17 @@ const InputExample = (): JSX.Element => {
               fullWidth
             />
           </Col>
-          <Col size={3}>
-
-          <MaskedField
-            mask={[/[0-3]/,/\d/, '/', /[0-1]/, /\d/,'/', /\d/, /\d/, /\d/, /\d/]}
-            name="input-name"
-            label="Example Masked Input"
-            type="text"
-            fullWidth
-          />
+          <Col>
+            <MaskedField
+              mask={[/[0-3]/,/\d/, '/', /[0-1]/, /\d/,'/', /\d/, /\d/, /\d/, /\d/]}
+              name="input-name"
+              label="Example Masked Input"
+              type="text"
+              fullWidth
+            />
+          </Col>
+          <Col>
+            <CurrencyField type="text" name="currency-field" label="Currency Field!" fullWidth />
           </Col>
         </Row>
       </Grid>

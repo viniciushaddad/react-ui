@@ -11,7 +11,7 @@ export { Input }
 export type InputSizes = 'md' | 'xs' | 'lg'
 
 export interface TextFieldProps {
-  label: string
+  label?: string
   name: string
   type:
     | 'button'
