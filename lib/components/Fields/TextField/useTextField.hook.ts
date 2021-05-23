@@ -23,7 +23,7 @@ const useTextField = ({ value, inputSize, error, ...rest }: TextFieldProps): Tex
   const [touched, setTouched] = useState(false)
   const [filled, setFilled] = useState(value ? value.length > 0 : false)
   const inputRef = createRef<HTMLInputElement>()
-  const [inputId] = useState(() => uniqueId('input-id'))
+  const inputId = uniqueId('input-id')
 
   const onFocus = () => setTouched(true)
   const onBlur = () => setTouched(false)

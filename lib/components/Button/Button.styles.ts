@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { ButtonFlavor, ButtonProps } from './Button'
+import { ButtonFlavor, ButtonProps } from './useButton'
 
 const paddings = {
   xs: '0.5em 1.5em',

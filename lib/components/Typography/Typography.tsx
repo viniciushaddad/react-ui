@@ -37,7 +37,7 @@ const elements = {
   body: 'p',
   body2: 'p',
   footnote: 'p',
-  button: 'label',
+  button: 'span',
   label: 'label',
 }
 
@@ -52,12 +52,12 @@ const Typography = styled(DynamicComponent)`
     variant = variant || 'body'
     color = color || 'grayDarker'
     return `
-      ${align && `text-align: ${align};`}
       cursor: inherit;
+      ${align ? `text-align: ${align};` : ''}
       color: ${theme.palette[color]};
       font-family: ${theme.font.family[variant]};
       ${styles[variant]}
-      ${bordered && `border-bottom: 1px solid ${theme.palette.grayLight};`}
+      ${bordered ? `border-bottom: 1px solid ${theme.palette.grayLight};` : ''}
     `
   }}
 `
