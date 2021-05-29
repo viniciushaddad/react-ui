@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react'
-import { TextField, MaskedField, Typography, Grid, Row, Col, CurrencyField } from '@viniciushaddad/react-ui'
+import { TextField, FileField, MaskedField, Typography, Grid, Row, Col, CurrencyField } from '@viniciushaddad/react-ui'
 
 const InputExample = (): JSX.Element => {
   const [badField, setBadField] = useState('Foo!')
@@ -36,6 +36,12 @@ const InputExample = (): JSX.Element => {
           </Col>
           <Col>
             <CurrencyField type="text" name="currency-field" label="Currency Field!" fullWidth />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Typography variant="title2" bordered>File Input 🌚</Typography>
+            <FileField name="files" accept="image/*" multiple onChange={(console.error)} />
           </Col>
         </Row>
       </Grid>
