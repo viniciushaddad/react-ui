@@ -6,8 +6,7 @@ const cardStyles = css<CardProps>`
     border: 1px solid ${theme.palette.grayLight};
     border-radius: ${theme.card.border.radius};
     background-color: ${theme.palette.white};
-    margin-bottom: 1em;
-    ${alignment && `text-align: ${alignment}`};
+    ${alignment ? `text-align: ${alignment}` : ''};
 `}
 `
 

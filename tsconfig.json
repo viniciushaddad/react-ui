@@ -22,6 +22,6 @@
     "jsx": "react",
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["lib/**/*"],
+  "include": ["lib/**/*", "typings.d.ts"],
   "exclude": ["node_modules", "build", "dist", "examples", "rollup.config.js"]
 }

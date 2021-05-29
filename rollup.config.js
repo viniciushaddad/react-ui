@@ -3,6 +3,7 @@ import url from 'rollup-plugin-url'
 import analyze from 'rollup-plugin-analyzer'
 import { createTransformer } from 'typescript-plugin-styled-components'
 import external from 'rollup-plugin-peer-deps-external'
+import svg from 'rollup-plugin-svg'
 import pkg from './package.json'
 
 export default {
@@ -25,6 +26,7 @@ export default {
       // are always bundled with the code, not copied to /dist
       limit: Infinity,
     }),
+    svg(),
     typescript({
       transformers: [
         () => ({
