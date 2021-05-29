@@ -29,6 +29,7 @@ const useCurrency = ({ currencyOptions, ...rest }: CurrencyFieldProps) => {
 
 const CurrencyField = (props: CurrencyFieldProps): JSX.Element => {
   const maskProps = useCurrency(props)
+
   return <MaskedField {...maskProps} />
 }
 

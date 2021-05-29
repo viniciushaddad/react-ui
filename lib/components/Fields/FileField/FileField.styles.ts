@@ -14,10 +14,16 @@ const DropZoneStyle = css<{ isDragActive?: boolean }>`
   align-content: center;
   justify-content: center;
   padding: 2em;
-  margin-bottom: 2rem;
   transition: all 277ms ease-in-out;
-
   ${({ isDragActive, theme: { palette } }) => (isDragActive ? `background-color: ${palette.white};` : '')}
+
+  &:hover {
+    background-color: ${({ theme }) => theme.palette.white};
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1em;
+  }
 `
 
 const DropZone = styled(Card)`

@@ -32,16 +32,17 @@ const Styles = css<LabelProps>`
   margin-top: -0.5em;
   transition: all 0.1s ease-in-out;
   ${
-    (touched || filled) &&
-    `
+    touched || filled
+      ? `
       background-color: ${theme.palette.white};
       ${labelSizes.touched[inputSize || 'md']}
       padding: 0 0.25em;
       margin-left: -0.25em;
       top: 0;
   `
+      : ''
   }
-  ${error && `color: ${theme.palette.redWood}`};
+  ${error ? `color: ${theme.palette.redWood}` : ''};
 `}
 `
 

@@ -1,6 +1,6 @@
 import { TypographyVariant } from 'lib/components/Typography/Typography'
 import { uniqueId } from 'lodash'
-import { RefObject, useState } from 'react'
+import { RefObject, useEffect, useState } from 'react'
 import { InputSizes, TextFieldProps } from '../Input'
 import { LabelProps } from '../Label/Label'
 
@@ -43,8 +43,12 @@ const useMaskedField = ({
   const onBlur = () => setTouched(false)
   const onInput = (e: React.FormEvent<HTMLInputElement>) => setFilled(e.currentTarget.value.length > 0)
 
+  useEffect(() => {
+    setFilled(value ? value.length > 0 : false)
+  }, [value])
+
   const labelProps = { htmlFor: inputId, variant: 'label' as TypographyVariant, touched, filled, inputSize, error }
-  const inputProps = { ...rest, id: inputId, onFocus, onInput, onBlur, error, inputSize }
+  const inputProps = { ...rest, id: inputId, onFocus, onInput, onBlur, error, inputSize, value }
   const maskedProps = { mask, id: inputId, showMask, inputMode }
   return {
     inputProps,

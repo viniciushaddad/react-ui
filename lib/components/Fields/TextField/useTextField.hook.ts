@@ -1,6 +1,6 @@
 import { TypographyVariant } from 'lib/components/Typography/Typography'
 import { uniqueId } from 'lodash'
-import { createRef, useState, RefObject } from 'react'
+import { createRef, useState, RefObject, useEffect } from 'react'
 import { InputSizes, TextFieldProps } from '../Input'
 import { LabelProps } from '../Label/Label'
 
@@ -30,6 +30,9 @@ const useTextField = ({ value, inputSize, error, ...rest }: TextFieldProps): Tex
   const onInput = (e: React.FormEvent<HTMLInputElement>) => {
     setFilled(e.currentTarget.value.length > 0)
   }
+  useEffect(() => {
+    setFilled(value ? value.length > 0 : false)
+  }, [value])
 
   const labelProps = { htmlFor: inputId, variant: 'label' as TypographyVariant, touched, filled, inputSize, error }
   const inputProps = { ...rest, id: inputId, ref: inputRef, value, onFocus, onInput, onBlur, error, inputSize }

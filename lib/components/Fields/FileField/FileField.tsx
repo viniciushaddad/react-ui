@@ -4,6 +4,7 @@ import { Typography } from 'lib/components/Typography'
 import { Thumb } from './Thumb'
 import { Container, DropZone, Previews } from './FileField.styles'
 import { FileFieldProps, useFileField } from './useFileField.hook'
+import { isEmpty } from 'lodash'
 
 const FileField = (props: FileFieldProps): JSX.Element => {
   const { files, dropzoneProps, inputProps, removeFile } = useFileField(props)
@@ -17,11 +18,13 @@ const FileField = (props: FileFieldProps): JSX.Element => {
           <strong>Drag</strong> your files here or <strong>click</strong> to select!
         </Typography>
       </DropZone>
-      <Previews>
-        {files.map((file, idx) => (
-          <Thumb key={idx} src={file.preview} onRemoveClick={() => removeFile(file)} />
-        ))}
-      </Previews>
+      {!isEmpty(files) && (
+        <Previews>
+          {files.map((file, idx) => (
+            <Thumb key={idx} src={file.preview} onRemoveClick={() => removeFile(file)} />
+          ))}
+        </Previews>
+      )}
     </Container>
   )
 }
