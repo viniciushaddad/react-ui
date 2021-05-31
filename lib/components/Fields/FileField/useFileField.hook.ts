@@ -2,12 +2,14 @@ import { without } from 'lodash'
 import { useEffect, useState } from 'react'
 import { useDropzone, DropzoneOptions, DropzoneInputProps, DropzoneRootProps } from 'react-dropzone'
 
-type FileState = { preview: string; file: File }
+type FileState = { preview: string; file: File; id: string }
 export interface FileFieldProps extends DropzoneOptions {
-  files?: File[]
+  files?: FileState[]
   name: string
   error?: string
   onChange?: (files: FileState[]) => void
+  onFilesAdd?: (files: { file: File }[]) => void
+  onFilesRemove?: (file: FileState[]) => void
 }
 type FileFieldHook = {
   files: FileState[]
@@ -16,20 +18,33 @@ type FileFieldHook = {
   removeFile: (file: FileState) => void
 }
 
-const useFileField = ({ files: _files, name, onChange }: FileFieldProps): FileFieldHook => {
-  const addPreview = (file: File) => ({ file, preview: URL.createObjectURL(file) })
+const useFileField = ({
+  files: _files,
+  name,
+  onChange,
+  onFilesRemove,
+  onFilesAdd,
+  ...rest
+}: FileFieldProps): FileFieldHook => {
+  const addPreview = ({ file, ...rest }: FileState) => ({ ...rest, file, preview: URL.createObjectURL(file) })
+
   const [files, setFiles] = useState((_files || []).map(addPreview))
   const removeFile = (file: FileState) => {
-    setFiles(without(files, file))
+    onFilesRemove && onFilesRemove([file])
     URL.revokeObjectURL(file.preview)
+    setFiles(without(files, file))
   }
-  const onDrop = (acceptedFiles: File[]) => setFiles([...files.map((f) => f.file), ...acceptedFiles].map(addPreview))
-  const { getRootProps, getInputProps, isDragActive, isFocused } = useDropzone({ onDrop })
+  const onDrop = (acceptedFiles: File[]) => {
+    const withMissingPropeties = (file: File) => ({ file, id: '', preview: '' })
+    onFilesAdd && onFilesAdd(acceptedFiles.map((file) => ({ file })))
+    setFiles([...files, ...acceptedFiles.map(withMissingPropeties)].map(addPreview))
+  }
+  const { getRootProps, getInputProps, isDragActive, isFocused } = useDropzone({ onDrop, ...rest })
   const dropzoneProps = { ...getRootProps(), isDragActive, isFocused }
   const inputProps = { ...getInputProps(), name }
 
-  useEffect(() => () => files.forEach(({ preview }) => URL.revokeObjectURL(preview)), [])
   useEffect(() => onChange && onChange(files), [files])
+  useEffect(() => () => files.forEach(({ preview }) => URL.revokeObjectURL(preview)), [])
 
   return { files, removeFile, dropzoneProps, inputProps }
 }
