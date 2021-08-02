@@ -20,6 +20,7 @@ interface MaskedFieldHookProps {
 }
 
 export interface MaskedFieldProps extends TextFieldProps {
+  mb?: string
   inputMode?: string
   showMask?: boolean
   mask: Array<string | RegExp> | boolean

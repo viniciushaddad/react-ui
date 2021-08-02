@@ -11,11 +11,11 @@ const Container = styled.div`
   position: relative;
 `
 
-const MaskedField = ({ label, error, ...rest }: MaskedFieldProps): JSX.Element => {
+const MaskedField = ({ label, error, mb, ...rest }: MaskedFieldProps): JSX.Element => {
   const { labelProps, inputProps, maskedProps } = useMaskedField({ label, error, ...rest })
 
   return (
-    <InputWrapper>
+    <InputWrapper {...{ mb }}>
       <Container>
         {label && <Label {...labelProps}>{label}</Label>}
         <MaskedTextField

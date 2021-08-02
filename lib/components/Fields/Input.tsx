@@ -41,4 +41,5 @@ export interface TextFieldProps {
   fullWidth?: boolean
   inputSize?: InputSizes
   error?: string
+  mb?: string
 }

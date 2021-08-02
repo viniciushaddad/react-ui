@@ -10,10 +10,10 @@ const Container = styled.div`
   position: relative;
 `
 
-const TextField: React.FC<TextFieldProps> = ({ label, error, ...rest }: TextFieldProps) => {
+const TextField: React.FC<TextFieldProps> = ({ label, error, mb, ...rest }: TextFieldProps) => {
   const { labelProps, inputProps } = useTextField({ label, error, ...rest })
   return (
-    <InputWrapper>
+    <InputWrapper {...{ mb }}>
       <Container>
         <Label {...labelProps}>{label}</Label>
         <Input {...inputProps} />
