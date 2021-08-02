@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 interface RowProps {
+  noGap?: boolean
   fullHeight?: boolean
 }
 
@@ -18,6 +19,7 @@ const Row = styled.div`
     }
   }
   ${({ fullHeight }: RowProps) => fullHeight && `width: 100vw; height: 100vh;`}
+  ${({ noGap }: RowProps) => noGap && 'gap: 0;'}
 `
 
 export { Row }
