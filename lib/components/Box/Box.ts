@@ -19,7 +19,7 @@ const Box = styled.div<BoxProps>`
     `
   }}
 
-  ${({ alignment }) => alignment && `text-align: ${alignment};s`}
+  ${({ alignment }) => alignment && `text-align: ${alignment};`}
   ${({ inline }) => inline && `display: inline;`}
 `
 

@@ -9,7 +9,8 @@ import { Typography,
   Social,
   Spinners,
   Box,
-  Card
+  Card,
+  Icon
 } from '@viniciushaddad/react-ui'
 import { chunk } from 'lodash'
 
@@ -47,11 +48,11 @@ const IconSystemExample = (): JSX.Element => (
     <Grid>
       {chunk(Object.entries(Action), 3).map((iconsInRows, index) => (
         <Row key={`icon-row-${index}`}>
-          {iconsInRows.map(([iconName, Icon], index) => (
+          {iconsInRows.map(([iconName, Component], index) => (
             <Col key={`icon-col-${index}`}>
               <Card alignment="center">
                 <Box>
-                  <Icon />
+                  <Component />
                 </Box>
                 <Box padding={['0 2em', '0 1em']}>
                   <Typography>{`<Action.${iconName} />`}</Typography>
@@ -67,11 +68,11 @@ const IconSystemExample = (): JSX.Element => (
       </Typography>
       {chunk(Object.entries(Alert), 3).map((iconsInRows, index) => (
         <Row key={`icon-row-${index}`}>
-          {iconsInRows.map(([iconName, Icon], index) => (
+          {iconsInRows.map(([iconName, Component], index) => (
             <Col key={`icon-col-${index}`}>
               <Card alignment="center">
                 <Box>
-                  <Icon />
+                  <Component />
                 </Box>
                 <Box padding={['0 2em', '0 1em']}>
                   <Typography>{`<Alert.${iconName} />`}</Typography>
@@ -87,14 +88,34 @@ const IconSystemExample = (): JSX.Element => (
       </Typography>
       {chunk(Object.entries(Navigation), 3).map((iconsInRows, index) => (
         <Row key={`icon-row-${index}`}>
-          {iconsInRows.map(([iconName, Icon], index) => (
+          {iconsInRows.map(([iconName, Component], index) => (
             <Col key={`icon-col-${index}`}>
               <Card alignment="center">
                 <Box>
-                  <Icon />
+                  <Component />
                 </Box>
                 <Box padding={['0 2em', '0 1em']}>
                   <Typography>{`<Navigation.${iconName} />`}</Typography>
+                </Box>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      ))}
+
+      <Typography variant="title2" bordered>
+        Others
+      </Typography>
+      {chunk(Object.entries(Icon), 3).map((iconsInRows, index) => (
+        <Row key={`icon-row-${index}`}>
+          {iconsInRows.map(([iconName, Component], index) => (
+            <Col key={`icon-col-${index}`}>
+              <Card alignment="center">
+                <Box>
+                  <Component />
+                </Box>
+                <Box padding={['0 2em', '0 1em']}>
+                  <Typography>{`<Icon.${iconName} />`}</Typography>
                 </Box>
               </Card>
             </Col>
