@@ -48,6 +48,37 @@ const theme = {
       radius: '0.2em',
     },
   },
+  buttons: {
+    positive: {
+      bg: 'inchworm',
+      font: 'white',
+      border: 'greenDarker',
+      hover: 'greenLight',
+      invertedHover: 'greenLigther',
+    },
+    info: {
+      bg: 'sapphireBlue',
+      font: 'white',
+      border: 'darkSlateBlue',
+      hover: 'darkSlateBlue',
+      invertedHover: 'blueLighter',
+    },
+    warning: {
+      bg: 'maizeCrayola',
+      font: 'white',
+      border: 'sandyBrown',
+      hover: 'sandyBrown',
+      invertedHover: 'crayolaLighter',
+    },
+    negative: { bg: 'redWood', font: 'white', border: 'darkRed', hover: 'darkRed', invertedHover: 'redLighter' },
+    neutral: {
+      bg: 'grayLighter',
+      font: 'grayDark',
+      border: 'grayLight',
+      hover: 'grayLight',
+      invertedHover: 'grayLighter',
+    },
+  },
   card: {
     border: { radius: '.5em' },
   },

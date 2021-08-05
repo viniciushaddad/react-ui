@@ -1,7 +1,6 @@
-import React, { JSXElementConstructor, ReactElement, ReactNode } from 'react'
+import React, { JSXElementConstructor, ReactElement, ReactNode, useContext } from 'react'
 import { uniqueId } from 'lodash'
-import styled from 'styled-components'
-import { colorsByFlavor } from './Button.styles'
+import styled, { ThemeContext } from 'styled-components'
 import { Typography } from '../Typography'
 import { TypographyVariant } from '../Typography/Typography'
 
@@ -24,14 +23,15 @@ export type ButtonFlavor = 'positive' | 'info' | 'warning' | 'negative' | 'neutr
 
 const PureButton = styled.button<ButtonProps>``
 const useButton = ({ as, variant, flavor, preIcon, children, endIcon, ...others }: UseButtonProps): UseButtonHook => {
-  const { font, border } = colorsByFlavor(flavor || 'neutral')
+  const { buttons } = useContext(ThemeContext)
+  const { font, border } = buttons[flavor || 'neutral']
   const inverted = variant === 'inverted'
   const color = inverted ? border : font
   const PreIconWithColour = preIcon && React.cloneElement(preIcon, { color })
   const EndIconWithColour = endIcon && React.cloneElement(endIcon, { color })
   const buttonId = uniqueId('button-id-')
   const buttonProps = { variant, flavor, preIcon, endIcon, ...others, id: buttonId }
-  const labelProps = { variant: 'button' as TypographyVariant, color, htmlFor: buttonId }
+  const labelProps = { variant: 'button' as TypographyVariant, color: 'inherit', htmlFor: buttonId }
   const Element = as || PureButton
   const Label = React.createElement(Typography, { ...labelProps }, children)
 

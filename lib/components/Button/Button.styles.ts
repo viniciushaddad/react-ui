@@ -1,3 +1,4 @@
+import theme from 'lib/themes/default'
 import { css } from 'styled-components'
 import { ButtonFlavor, ButtonProps } from './useButton'
 
@@ -18,41 +19,6 @@ type Colors = {
   border: string
   hover: string
   invertedHover: string
-}
-
-const colorsByFlavor = (flavor: ButtonFlavor): Colors => {
-  const flavors = {
-    positive: {
-      bg: 'inchworm',
-      font: 'white',
-      border: 'greenDarker',
-      hover: 'greenLight',
-      invertedHover: 'greenLigther',
-    },
-    info: {
-      bg: 'sapphireBlue',
-      font: 'white',
-      border: 'darkSlateBlue',
-      hover: 'darkSlateBlue',
-      invertedHover: 'blueLighter',
-    },
-    warning: {
-      bg: 'maizeCrayola',
-      font: 'white',
-      border: 'sandyBrown',
-      hover: 'sandyBrown',
-      invertedHover: 'crayolaLighter',
-    },
-    negative: { bg: 'redWood', font: 'white', border: 'darkRed', hover: 'darkRed', invertedHover: 'redLighter' },
-    neutral: {
-      bg: 'grayLighter',
-      font: 'grayDark',
-      border: 'grayLight',
-      hover: 'grayLight',
-      invertedHover: 'grayLighter',
-    },
-  }
-  return flavors[flavor || 'neutral']
 }
 
 const ButtonStyles = css<ButtonProps>`
@@ -82,14 +48,16 @@ const ButtonStyles = css<ButtonProps>`
     border-style: ${button.border.style};
     border-width: ${button.border.width};
     border-radius: ${button.border.radius};
+    ${button.shadow && `box-shadow: ${button.shadow};`}
   `}
 
-  ${({ theme: { palette }, flavor }) => {
-    const { hover } = colorsByFlavor(flavor || 'neutral')
+  ${({ theme: { palette, buttons }, flavor }) => {
+    const { hover, fontHover } = buttons[flavor || 'neutral']
 
     return `
       &:hover {
         background-color: ${palette[hover]};
+        ${fontHover && `color: ${fontHover};`}
       }
     `
   }}
@@ -98,8 +66,8 @@ const ButtonStyles = css<ButtonProps>`
 `
 
 const PrimaryButtonStyle = css<ButtonProps>`
-  ${({ theme: { palette }, flavor }) => {
-    const { font, bg, border } = colorsByFlavor(flavor || 'neutral')
+  ${({ theme: { palette, buttons }, flavor }) => {
+    const { font, bg, border } = buttons[flavor || 'neutral']
 
     return `
       background-color: ${palette[bg]};
@@ -110,8 +78,8 @@ const PrimaryButtonStyle = css<ButtonProps>`
 `
 
 const InvertedButtonStyle = css<ButtonProps>`
-  ${({ theme: { palette }, flavor, variant }) => {
-    const { font, border, invertedHover } = colorsByFlavor(flavor || 'neutral')
+  ${({ theme: { palette, buttons }, flavor, variant }) => {
+    const { font, border, fontHover, invertedHover } = buttons[flavor || 'neutral']
 
     if (variant !== 'inverted') return ``
 
@@ -122,6 +90,7 @@ const InvertedButtonStyle = css<ButtonProps>`
       border-style: solid;
 
       &:hover {
+        color: ${fontHover || font}
         background-color: ${palette[invertedHover]};
       }
     `
@@ -146,11 +115,4 @@ const DisabledButtonStyle = css<ButtonProps>`
   `}
 `
 
-export {
-  ButtonStyles,
-  PrimaryButtonStyle,
-  BorderlessButtonStyle,
-  InvertedButtonStyle,
-  DisabledButtonStyle,
-  colorsByFlavor,
-}
+export { ButtonStyles, PrimaryButtonStyle, BorderlessButtonStyle, InvertedButtonStyle, DisabledButtonStyle }
