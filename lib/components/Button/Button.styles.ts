@@ -1,6 +1,5 @@
-import theme from 'lib/themes/default'
 import { css } from 'styled-components'
-import { ButtonFlavor, ButtonProps } from './useButton'
+import { ButtonProps } from './useButton'
 
 const paddings = {
   xs: '0.5em 1.5em',
@@ -11,14 +10,6 @@ const fontSizes = {
   xs: '0.75em',
   md: '1em',
   lg: '1.25em',
-}
-
-type Colors = {
-  bg: string
-  font: string
-  border: string
-  hover: string
-  invertedHover: string
 }
 
 const ButtonStyles = css<ButtonProps>`
