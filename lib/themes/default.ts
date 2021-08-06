@@ -80,7 +80,12 @@ const theme = {
     },
   },
   card: {
-    border: { radius: '.5em' },
+    border: {
+      width: '1px',
+      style: 'solid',
+      radius: '.5em',
+      color: 'grayLight',
+    },
   },
   input: {
     border: {
