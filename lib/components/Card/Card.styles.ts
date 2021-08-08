@@ -15,8 +15,8 @@ const cardStyles = css<CardProps>`
   ${({ theme: { media }, margin }) => {
     const [baseMargin, tabletMargin] = margin || []
     return `
-      ${baseMargin && `margin: ${baseMargin}`};
-      ${tabletMargin && `${media.tablet} { margin: ${tabletMargin}; }`}
+      ${baseMargin ? `margin: ${baseMargin};` : ''}
+      ${tabletMargin ? `${media.tablet} { margin: ${tabletMargin}; }` : ''}
     `
   }}
 `
