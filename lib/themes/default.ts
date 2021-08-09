@@ -86,6 +86,9 @@ const theme = {
       radius: '.5em',
       color: 'grayLight',
     },
+    hover: {
+      bg: 'grayLighter',
+    },
   },
   input: {
     border: {

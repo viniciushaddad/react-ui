@@ -18,7 +18,7 @@ export interface BaseIconProps extends FontAwesomeIconProps {
 const Wrapper = styled.i`
   line-height: 1.5em;
   display: inline-block;
-  color: ${({ color, theme: { palette } }) => palette[color || 'grayDark']};
+  color: ${({ color, theme: { palette } }) => (color ? palette[color] : 'inherit')};
 `
 
 const BaseIcon = ({ children, ...rest }: BaseIconProps): JSX.Element => (

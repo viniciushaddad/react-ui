@@ -10,7 +10,18 @@ const cardStyles = css<CardProps>`
     background-color: ${palette.white};
     ${alignment ? `text-align: ${alignment};` : ''}
     ${card.shadow ? `box-shadow: ${card.shadow};` : ''}
-`}
+  `}
+
+  ${({ theme: { palette, card }, onClick, hover }) =>
+    (onClick || hover) &&
+    `
+      cursor: pointer;
+      transition: background-color 350ms, color 350ms;
+      &:hover {
+        ${card.hover.bg && `background-color: ${palette[card.hover.bg]};`}
+        ${card.hover.color && `color: ${palette[card.hover.color]};`}
+      }
+    `}
 
   ${({ theme: { media }, margin }) => {
     const [baseMargin, tabletMargin] = margin || []
