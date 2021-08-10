@@ -5,8 +5,8 @@ import { cardStyles } from './Card.styles'
 export interface CardProps {
   alignment?: 'center' | 'justify' | 'left' | 'right'
   margin?: string[]
-  onClick?: MouseEventHandler<MouseEvent>
   hover?: boolean
+  onClick?: MouseEventHandler<HTMLElement>
 }
 
 const Card = styled.div<CardProps>`

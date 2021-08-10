@@ -13,7 +13,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-dropzone": "^5.1.0",
     "@types/react-text-mask": "^5.4.7",
-    "@types/styled-components": "^4.4.1",
+    "@types/styled-components": "^5.1.12",
     "lodash": "^4.17.20",
     "react-dropzone": "^11.3.2",
     "react-text-mask": "^5.4.3",
@@ -27,8 +27,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-dropzone": "^11.3.2",
+    "react-is": "^16.8",
     "react-text-mask": "^5.4.3",
-    "styled-components": "^4.4.1",
+    "styled-components": "^5.2.3",
     "text-mask-addons": "^3.8.0"
   },
   "scripts": {
@@ -79,7 +80,7 @@
     "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-typescript2": "^0.30.0",
     "rollup-plugin-url": "^3.0.1",
-    "styled-components": "^4.4.1"
+    "styled-components": "^5.2.3"
   },
   "description": "This is a study to how publish react component as a package and use it in different projects.",
   "main": "dist/index.js",
