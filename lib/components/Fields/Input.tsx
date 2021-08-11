@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from 'react'
+import { ChangeEventHandler, FocusEventHandler } from 'react'
 import styled, { StyledComponent } from 'styled-components'
 import { inputCss } from './Input.styles'
 
@@ -37,9 +37,12 @@ export interface TextFieldProps {
     | 'url'
     | 'week'
   value?: string
+  onBlur?: FocusEventHandler<HTMLInputElement>
   onChange?: ChangeEventHandler<HTMLInputElement>
+  onFocus?: FocusEventHandler<HTMLInputElement>
   fullWidth?: boolean
   inputSize?: InputSizes
   error?: string
   mb?: string
+  disabled?: boolean
 }

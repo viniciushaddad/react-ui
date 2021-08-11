@@ -1,13 +1,13 @@
 import { TypographyVariant } from 'lib/components/Typography/Typography'
 import { uniqueId } from 'lodash'
-import { RefObject, useEffect, useState } from 'react'
+import { FocusEvent, FocusEventHandler, RefObject, useEffect, useState } from 'react'
 import { InputSizes, TextFieldProps } from '../Input'
 import { LabelProps } from '../Label/Label'
 
 export type InputProps = {
   id: string
-  onFocus: () => void
-  onBlur: () => void
+  onFocus: FocusEventHandler<HTMLInputElement>
+  onBlur: FocusEventHandler<HTMLInputElement>
   onInput: (e: React.FormEvent<HTMLInputElement>) => void
   error?: string
   inputSize?: InputSizes
@@ -40,8 +40,14 @@ const useMaskedField = ({
   const [filled, setFilled] = useState(value ? value.length > 0 : false)
   const [inputId] = useState(() => uniqueId('input-id'))
 
-  const onFocus = () => setTouched(true)
-  const onBlur = () => setTouched(false)
+  const onFocus = (e: FocusEvent<HTMLInputElement>) => {
+    rest.onFocus?.(e)
+    setTouched(true)
+  }
+  const onBlur = (e: FocusEvent<HTMLInputElement>) => {
+    rest.onBlur?.(e)
+    setTouched(false)
+  }
   const onInput = (e: React.FormEvent<HTMLInputElement>) => setFilled(e.currentTarget.value.length > 0)
 
   useEffect(() => {

@@ -5,4 +5,5 @@ import * as Social from './Social'
 import * as Spinners from './Spinners'
 import * as Icon from './Icon'
 
+export { IconStack } from './IconStack'
 export { Action, Alert, Icon, Navigation, Social, Spinners }

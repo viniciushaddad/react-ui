@@ -1,6 +1,6 @@
 import React from 'react'
 import { merge } from 'lodash'
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { createGlobalStyle, Theme, ThemeProvider } from 'styled-components'
 import Mulish from './fonts/Mulish.ttf'
 import Roboto from './fonts/RobotoRegular.ttf'
 import ComfortaaVariable from './fonts/ComfortaaVariable.ttf'
@@ -9,7 +9,7 @@ import SpartanVariable from './fonts/SpartanVariable.ttf'
 import defaultTheme from '../../themes/default'
 import { node, object, ReactNodeLike } from 'prop-types'
 
-const GlobalStyles = createGlobalStyle`
+const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
   @font-face {
     font-family: Comfortaa;
     src: url(${ComfortaaVariable}) format("truetype");
@@ -42,20 +42,23 @@ const GlobalStyles = createGlobalStyle`
   }
 
   * {
-    font-family: ${defaultTheme.font.family.body};
+    font-family: ${({ theme: { font } }) => font.family.body};
     padding: 0;
     margin: 0;
     box-sizing: border-box;
   }
   :root {
-    font-size: ${defaultTheme.font.sizes.web};
-
-    ${defaultTheme.media.tablet} {
-      font-size: ${defaultTheme.font.sizes.tablet};
-    }
-    ${defaultTheme.media.phone} {
-      font-size: ${defaultTheme.font.sizes.phone};
-    }
+    ${({ theme: { screen, media, font } }) => `
+      ${media.custom(screen.tablet, 'min-width')} {
+        font-size: ${font.sizes.web};
+      }
+      ${media.tablet} {
+        font-size: ${font.sizes.tablet};
+      }
+      ${media.phone} {
+        font-size: ${font.sizes.phone};
+      }
+    `}
   }
 `
 const ApplyTheme: React.FC<{ children?: ReactNodeLike; theme?: unknown }> = ({ children, theme }) => (

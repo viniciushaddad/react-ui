@@ -7,6 +7,7 @@ export interface FileFieldProps extends DropzoneOptions {
   files?: FileState[]
   name: string
   error?: string
+  disabled?: boolean
   onChange?: (files: FileState[]) => void
   onFilesAdd?: (files: { file: File }[]) => void
   onFilesRemove?: (file: FileState[]) => void

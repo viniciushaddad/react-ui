@@ -20,7 +20,7 @@ const inputSizes = {
 }
 
 const inputCss = css<TextFieldProps>`
-  ${({ theme: { input, palette }, fullWidth, inputSize, error }) => `
+  ${({ theme: { input, palette }, fullWidth, inputSize, error, disabled }) => `
     border-width: 0;
     border-radius: ${input.border.radius};
     border-style: ${input.border.style};
@@ -35,7 +35,16 @@ const inputCss = css<TextFieldProps>`
       border-color: ${error ? palette.redWood : palette.grayLight}a8;
   }
 
-    ${error && `border-color: ${palette.redWood};`}
+    ${error ? `border-color: ${palette.redWood};` : ''}
+
+    ${
+      disabled
+        ? `
+        cursor: not-allowed;
+        backgorund-color: ${palette.grayLighter};
+      `
+        : ''
+    }
   `}
 `
 

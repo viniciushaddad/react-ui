@@ -1,14 +1,14 @@
 import { TypographyVariant } from 'lib/components/Typography/Typography'
 import { uniqueId } from 'lodash'
-import { createRef, useState, RefObject, useEffect } from 'react'
+import { createRef, useState, RefObject, useEffect, FormEvent, FocusEvent, FocusEventHandler } from 'react'
 import { InputSizes, TextFieldProps } from '../Input'
 import { LabelProps } from '../Label/Label'
 
 type InputProps = {
   id: string
   ref: RefObject<HTMLInputElement>
-  onFocus: () => void
-  onBlur: () => void
+  onFocus: FocusEventHandler<HTMLInputElement>
+  onBlur: FocusEventHandler<HTMLInputElement>
   onInput: (e: React.FormEvent<HTMLInputElement>) => void
   error?: string
   inputSize?: InputSizes
@@ -25,8 +25,14 @@ const useTextField = ({ value, inputSize, error, ...rest }: TextFieldProps): Tex
   const inputRef = createRef<HTMLInputElement>()
   const inputId = uniqueId('input-id')
 
-  const onFocus = () => setTouched(true)
-  const onBlur = () => setTouched(false)
+  const onFocus = (e: FocusEvent<HTMLInputElement>) => {
+    rest.onFocus?.(e)
+    setTouched(true)
+  }
+  const onBlur = (e: FocusEvent<HTMLInputElement>) => {
+    rest.onBlur?.(e)
+    setTouched(false)
+  }
   const onInput = (e: React.FormEvent<HTMLInputElement>) => {
     setFilled(e.currentTarget.value.length > 0)
   }
