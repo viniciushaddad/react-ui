@@ -4,6 +4,7 @@ import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontaw
 import { IconProp, SizeProp } from '@fortawesome/fontawesome-svg-core'
 
 export interface IconProps {
+  icon?: IconProp
   size?: SizeProp
   color?: string
 }
