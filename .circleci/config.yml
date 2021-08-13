@@ -36,6 +36,9 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
+          name: Build production dist
+          command: yarn build
+      - run:
           name: Set registry URL
           command: npm set registry https://registry.npmjs.org
       - run:

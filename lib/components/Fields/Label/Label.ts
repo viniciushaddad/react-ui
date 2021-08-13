@@ -13,7 +13,7 @@ export type LabelProps = {
 }
 
 const labelSizes = {
-  md: `fons-size: 1em;`,
+  md: `font-size: 1em;`,
   xs: `font-size: 0.85em;`,
   lg: `font-size: 1.5em;`,
   touched: {

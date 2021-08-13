@@ -16,7 +16,8 @@ const ButtonStyles = css<ButtonProps>`
   cursor: pointer;
   margin-left: 1em;
   margin-right: 1em;
-  min-width: 15em;
+  ${({ block }) => (block ? 'width: 100%;' : 'min-width: 15em;')}
+
   ${({ preIcon, endIcon, loading }) =>
     !loading &&
     (preIcon || endIcon) &&
@@ -52,8 +53,6 @@ const ButtonStyles = css<ButtonProps>`
       }
     `
   }}
-
-  ${({ block }) => block && `min-width: unset; width: 100%; `}
 `
 
 const PrimaryButtonStyle = css<ButtonProps>`
