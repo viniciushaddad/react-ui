@@ -3,7 +3,7 @@ import { ButtonProps } from './useButton'
 
 const paddings = {
   xs: '0.5em 1.5em',
-  md: '0.5em 1.5em',
+  md: '0.75em 1.5em',
   lg: '1em 2em',
 }
 const fontSizes = {

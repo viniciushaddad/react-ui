@@ -46,6 +46,10 @@ const inputCss = css<TextFieldProps>`
         : ''
     }
   `}
+  ${({ prepend, append }) => `
+    ${prepend ? `border-top-right-radius: 0; border-bottom-right-radius: 0;` : ''}
+    ${append ? `border-top-left-radius: 0; border-bottom-left-radius: 0;` : ''}
+  `}
 `
 
 export { inputCss }

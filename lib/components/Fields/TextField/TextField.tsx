@@ -8,7 +8,6 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   position: relative;
-  max-width: min-content;
 `
 
 const TextField: React.FC<TextFieldProps> = ({ label, error, mb, ...rest }: TextFieldProps) => {

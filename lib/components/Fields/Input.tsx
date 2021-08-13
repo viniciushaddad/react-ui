@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FocusEventHandler } from 'react'
+import { ChangeEventHandler, FocusEventHandler, ReactElement, ReactNode } from 'react'
 import styled, { StyledComponent } from 'styled-components'
 import { inputCss } from './Input.styles'
 
@@ -45,4 +45,8 @@ export interface TextFieldProps {
   error?: string
   mb?: string
   disabled?: boolean
+  prepend?: ReactElement
+  append?: ReactElement
+  preIcon?: ReactElement
+  endIcon?: ReactElement
 }
