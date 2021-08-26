@@ -248,10 +248,19 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16", "@types/react@^16.9.0":
-  "integrity" "sha512-Don0MtsZZ3fjwTJ2BsoqkyOy7e176KplEAKOpr/4XDdzinlyJBn9yfsKn5mcSgn4kh1B22+3tBnzBC1z63ybtQ=="
-  "resolved" "https://registry.npmjs.org/@types/react/-/react-16.14.11.tgz"
-  "version" "16.14.11"
+"@types/react@*", "@types/react@^17.0.18":
+  "integrity" "sha512-sX1HisdB1/ZESixMTGnMxH9TDe8Sk709734fEQZzCV/4lSu9kJCPbo2PbTRoZM+53Pp0P10hYVyReUueGwUi4A=="
+  "resolved" "https://registry.npmjs.org/@types/react/-/react-17.0.19.tgz"
+  "version" "17.0.19"
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    "csstype" "^3.0.2"
+
+"@types/react@^16":
+  "integrity" "sha512-uwIWDYW8LznHzEMJl7ag9St1RsK0gw/xaFZ5+uI1ZM1HndwUgmPH3/wQkSb87GkOVg7shUxnpNW8DcN0AzvG5Q=="
+  "resolved" "https://registry.npmjs.org/@types/react/-/react-16.14.14.tgz"
+  "version" "16.14.14"
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -300,9 +309,9 @@
     "@types/yargs-parser" "*"
 
 "@types/yargs@^15.0.0":
-  "integrity" "sha512-kQ5JNTrbDv3Rp5X2n/iUu37IJBDU2gsZ5R/g1/KHOOEc5IKfUFjXT6DENPGduh08I/pamwtEq4oul7gUqKTQDQ=="
-  "resolved" "https://registry.npmjs.org/@types/yargs/-/yargs-15.0.13.tgz"
-  "version" "15.0.13"
+  "integrity" "sha512-yEJzHoxf6SyQGhBhIYGXQDSCkJjB6HohDShto7m8vaKg9Yp0Yn8+71J9eakh2bnPg6BfsH9PRMhiRTZnd4eXGQ=="
+  "resolved" "https://registry.npmjs.org/@types/yargs/-/yargs-15.0.14.tgz"
+  "version" "15.0.14"
   dependencies:
     "@types/yargs-parser" "*"
 
@@ -1397,15 +1406,15 @@
     "jest-get-type" "^24.9.0"
     "pretty-format" "^24.9.0"
 
-"js-tokens@^3.0.0 || ^4.0.0", "js-tokens@^3.0.2":
-  "integrity" "sha1-mGbfOVECEw449/mWvOtlRDIJwls="
-  "resolved" "https://registry.npmjs.org/js-tokens/-/js-tokens-3.0.2.tgz"
-  "version" "3.0.2"
-
-"js-tokens@^4.0.0":
+"js-tokens@^3.0.0 || ^4.0.0", "js-tokens@^4.0.0":
   "integrity" "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
   "resolved" "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz"
   "version" "4.0.0"
+
+"js-tokens@^3.0.2":
+  "integrity" "sha1-mGbfOVECEw449/mWvOtlRDIJwls="
+  "resolved" "https://registry.npmjs.org/js-tokens/-/js-tokens-3.0.2.tgz"
+  "version" "3.0.2"
 
 "js-yaml@^3.13.1":
   "integrity" "sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g=="

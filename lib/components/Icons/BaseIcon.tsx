@@ -23,7 +23,7 @@ const Wrapper = styled.i`
 `
 
 const BaseIcon = ({ children, ...rest }: BaseIconProps): JSX.Element => (
-  <Wrapper>{children ? children : <FontAwesomeIcon {...rest} />}</Wrapper>
+  <Wrapper color={rest.color}>{children ? children : <FontAwesomeIcon {...rest} />}</Wrapper>
 )
 
 export { BaseIcon }
