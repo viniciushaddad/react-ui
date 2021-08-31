@@ -16,6 +16,7 @@ export interface ButtonProps {
   disabled?: boolean
   onClick?: () => void
   block?: boolean
+  margin?: string[]
 }
 export type ButtonSizes = 'md' | 'xs' | 'lg'
 export type ButtonVariant = 'primary' | 'inverted' | 'borderless'

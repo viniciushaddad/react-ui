@@ -53,6 +53,13 @@ const ButtonStyles = css<ButtonProps>`
       }
     `
   }}
+  ${({ theme: { media }, margin }) => {
+    const [baseMargin, tabletMargin] = margin || []
+    return `
+      ${baseMargin ? `margin: ${baseMargin};` : ''}
+      ${tabletMargin ? `${media.tablet} { margin: ${tabletMargin}; }` : ''}
+    `
+  }}
 `
 
 const PrimaryButtonStyle = css<ButtonProps>`
